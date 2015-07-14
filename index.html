@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Seleniumtests by adarsha89</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Seleniumtests</h1>
+      <h2 class="project-tagline">Selenium Maven project for testing of Codepair website</h2>
+      <a href="https://github.com/adarsha89/SeleniumTests" class="btn">View on GitHub</a>
+      <a href="https://github.com/adarsha89/SeleniumTests/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/adarsha89/SeleniumTests/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="seleniumtests" class="anchor" href="#seleniumtests" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>###SeleniumTests</strong>
+</h1>
+
+<p><strong>## Description:</strong> Selenium-Maven project to Test Codepair in HackerRankForWork website</p>
+
+<p><strong>## Purpose:</strong> Functional testing of Codepair. The project is aimed at covering all major functionalities that can be automated using Selenium WebDriver</p>
+
+<p><strong>## Components:</strong></p>
+
+<p>1) Maven framework to manage the dependencies in terms of jar files and to package the entire application.
+2) TestNG framework for test automation management (Management of creation and execution of test suites and testcases    and test execution reports )
+3) Apache POI API to integrate with Microsoft excel
+4) Java mail API to email the test execution reports, screenshots,etc after zipping these files.</p>
+
+<p>*<em>## Features: *</em></p>
+
+<p>1) This project is a Maven Java project
+2) TestNG annotations are used to create TestCases,TestSuites,Listeners,TestFactories, TestExecutionReports and         TestDataProviders .
+3) Log4j framework is used for logging events during test execution
+4) Spring Data Access and Spring Beans is used for connecting to database
+5) PageFactory pattern is used to organize the AUT(Application Under Test) into various pages.
+6) Finding broken links is also included in the tests
+7) The test project can be used to run testcases in a data driven or a hybrid method.
+8) The wait functions used in the testcases take into account the dynamic nature of the webpages
+9) The Test Execution Report layout has been customized on the default layout of Report in TestNG
+10) The project is aimed at being independent of the Test Execution environment.</p>
+
+<p><strong>## ## Design patterns used in this automation project:</strong></p>
+
+<p>1) Page Object pattern: The entire front end of the AUT is maintained in terms of Pages , so that webelements and        their actions, corresponding to any given page are defined together. This enables code corresponding to a page to     be maitained independently from the code related to any other page
+2) Factory pattern is implemented using Page Factory class of Selenium:
+    The page factory uses <a href="https://github.com/FindBy" class="user-mention">@FindBy</a> annotations to recognize webElements using xpath and does lazy initialization of       Page classes. 
+3) Reusability of code: All high level functionalities like login signup etc are defined as functions that enable        modularity and reusability
+4) Independent test cases: TestNG framework enables independent execution of testcases.
+5) Abstraction Levels: The code has abstraction from a very low level like a click to a high level like signup or        starting an interview.
+6) Data-driven testing: Test factories and dataproviders provided in TestNG framework has enabled testcases to be        executed in a data driven manner, ie: by getting various test inputs from independent sources external to the        testcases.
+7) Hybrid testing: Java Reflection API has been used to enable hybrid testing for the testcases.
+8) Default Data: Default data is used for some basic functionalities like Login.</p>
+
+<p><strong>## Setup Instructions for any OS:</strong>
+  1) Download latest JDK from the link : <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a> and            install it on your system 
+  2) Download latest version of Eclipse Junos
+  3) Download and install eclipse ide software under the heading : Eclipse IDE for Java Developers  from the link:         <a href="https://eclipse.org/downloads/">https://eclipse.org/downloads/</a>
+  5)Clone this repository into your Github local folder
+  6) In the File menu option Import your project into Eclipse using the Import option and browsing to your project
+  6) Once the project is added in Eclipse , context click on the project in the Package Explorer and go to                 'Properties&gt;Java Build Path&gt;Libraries' 
+  7) Using the Add Library option add libraries: 
+      a) Maven Managed Dependencies
+      b)TestNG
+      c)JRE System Library: Java 7 or higher version (If not already present)
+  8) Context click on the 'pom.xml' file and Run As:
+      a)Maven clean
+      b)Maven generate-resources
+      c)Maven install
+        one after the other
+  9) The Sanity Test Suite file:CodePairSanitySuite.xml  is placed under: src/test/resources package under testsuites       folder. This suite contains the sanity test cases as of today
+  10) To Execute the test suite, context click on the file and Run As: TestNG suite</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/adarsha89/SeleniumTests">Seleniumtests</a> is maintained by <a href="https://github.com/adarsha89">adarsha89</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
