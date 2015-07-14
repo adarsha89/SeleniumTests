@@ -57,3 +57,4 @@ Setup Instructions for any OS:
   9) The Sanity Test Suite file:CodePairSanitySuite.xml  is placed under: src/test/resources package under testsuites       folder. This suite contains the sanity test cases as of today
   10) To Execute the test suite, context click on the file and Run As: TestNG suite
       
+Github pages link: http://adarsha89.github.io/SeleniumTests/
