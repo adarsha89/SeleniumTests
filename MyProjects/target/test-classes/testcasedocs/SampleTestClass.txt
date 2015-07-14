@@ -1,0 +1,89 @@
+
+
+
+package net.project.testClasses;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.core.PrioritizedParameterNameDiscoverer;
+import org.springframework.web.accept.ParameterContentNegotiationStrategy;
+
+import net.project.listeners.AnnotationsListener;
+import net.project.listeners.AppListener;
+import net.project.loggers.AppLogger;
+import net.project.pageClasses.BasicLayoutPage;
+import net.project.pageClasses.ToolsQAHomePage;
+import net.project.webDriverUtils.WebDriverUtilFunctions;
+import net.project.webDriverUtils.SpyClass;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.ITestNGMethod;
+import org.testng.ITestResult;
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
+
+public class MySampleTestClass {
+	PrioritizedParameterNameDiscoverer prioritizedParameterNameDiscoverer= new PrioritizedParameterNameDiscoverer();
+	SpyClass spyObject=new SpyClass();
+	Object fieldObject=null;
+	Object currentPage=null;
+	WebDriver webDriver=null;
+	WebDriverUtilFunctions webDriverUtilFunctions=null;
+	public MySampleTestClass() {
+	}
+	
+private Map<String, Object> getMapOfTestContextConfigs(String testContextName) {
+	// TODO Auto-generated method stub
+	return AnnotationsListener.mapOfTestContextParameters.get(testContextName);
+}
+
+private String getTestCaseName(String testCaseDescription) {
+	// TODO Auto-generated method stub
+	return testCaseDescription.split(":")[0];
+}
+
+private String getTestContextName() {
+	// TODO Auto-generated method stub
+	return Reporter.getCurrentTestResult().getTestContext().getName();
+}
+
+private String getTestCaseDescription() {
+	// TODO Auto-generated method stub
+	return Reporter.getCurrentTestResult().getMethod().getDescription();    
+}
+
+
+private void setActualStartTimeOfTestCase() {
+	// TODO Auto-generated method stub
+	Reporter.getCurrentTestResult().setAttribute("startTime", new Long(System.currentTimeMillis()));
+	
+}
+private List<Map<String, String>> getListOfPreTestCaseMethods(String testContextName, String testCaseName)
+{
+	return AnnotationsListener.mapOfPreTestCaseSteps.get(testContextName).get(testCaseName);
+}
+private List<Map<String, String>> getListOfTestMethods(String testContextName,String testCaseName)
+{
+	return AnnotationsListener.mapOfTestSteps.get(testContextName).get(testCaseName);
+}
+
+private List<Map<String, String>> getListOfDataProviderIndex(String testContextName,String testCaseName)
+{
+	return AnnotationsListener.mapOfParametersFromDataProviders.get(testContextName).get(testCaseName);
+}
+
+public  ToolsQAHomePage  goToStartPage(WebDriver webDriver)
+{
+		ToolsQAHomePage toolsQAHomePage=new ToolsQAHomePage(webDriver);
+		toolsQAHomePage.load();
+		toolsQAHomePage.isLoaded();
+		return toolsQAHomePage;	
+}

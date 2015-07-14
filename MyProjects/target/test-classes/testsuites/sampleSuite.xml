@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite1" parallel="tests" thread-count="5">
+<listeners>
+ <listener class-name="net.project.listeners.AppListener">
+ </listener>
+</listeners>
+<test name="ChromeTest" preserve-order="true" >
+ <parameter name="browser" value="Chrome" />
+ <classes> 
+ <class name="net.project.testClasses.HackerrankTestCases.BasicTestCase">
+ </class>
+ </classes>
+</test>
+<!-- <test name="FirefoxTest" preserve-order="true" >
+ <parameter name="browser" value="Firefox" />
+ <classes> 
+ <class name="net.project.testClasses.HackerrankTestCases.BasicTestCase" >
+  </class>
+ </classes>
+</test> -->
+<test name="PhantomJSTest" preserve-order="true" >
+ <parameter name="browser" value="PhantomJS" />
+ <classes> 
+ <class name="net.project.testClasses.HackerrankTestCases.BasicTestCase" >
+  </class>
+ </classes>
+</test>
+ </suite>
+ 

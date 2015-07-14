@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Customized - TestNG Report</title>
+<style type="text/css">
+table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}
+td,th {border:1px solid #009;padding:.25em .5em}
+.result th {vertical-align:bottom}
+.param th {padding-left:1em;padding-right:1em}
+.param td {padding-left:.5em;padding-right:2em}
+.stripe td,.stripe th {background-color: #E6EBF9}
+.numi,.numi_attn {text-align:right}
+.total td {font-weight:bold}
+.passedodd td {background-color: #0A0}
+.passedeven td {background-color: #3F3}
+.skippedodd td {background-color: #CCC}
+.skippedodd td {background-color: #DDD}
+.failedodd td,.numi_attn {background-color: #F33}
+.failedeven td,.stripe .numi_attn {background-color: #D00}
+.stacktrace {white-space:pre;font-family:monospace}
+.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}
+</style>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" class="testOverview">
+<tr><th>Test</th><th>Methods<br/>Passed</th><th>Scenarios<br/>Passed</th><th># skipped</th><th># failed</th><th>Error messages</th><th>Parameters</th><th>Start<br/>Time</th><th>End<br/>Time</th><th>Total<br/>Time</th><th>Included<br/>Groups</th><th>Excluded<br/>Groups</th></tr>
+<tr><td style="text-align:left;padding-right:2em"><a href="#t1">ChromeTest</a></td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+</td>
+<td class="numi"></td>
+<td class="numi">7 Jun, 2015 10:33:22 PM</td></td>
+<td class="numi">7 Jun, 2015 10:37:00 PM</td></td>
+<td class="numi">218.9 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="stripe"><td style="text-align:left;padding-right:2em"><a href="#t2">PhantomJSTest</a></td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">org.openqa.selenium.TimeoutException: Timed out after 20 seconds waiting for net.project.webDriverUtils.WebDriverUtilFunctions$17@8b23417
+</td>
+<td class="numi"></td>
+<td class="numi">7 Jun, 2015 10:33:22 PM</td></td>
+<td class="numi">7 Jun, 2015 10:37:17 PM</td></td>
+<td class="numi">235.6 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="total"><td>Total</td>
+<td class="numi">2</td><td class="numi">2</td><td class="numi">0</td><td class="numi_attn">2</td><td class="numi"> </td><td class="numi"> </td><td class="numi"> </td><td class="numi"> </td><td class="numi">3.9 minutes</td><td colspan="3">&nbsp;</td></tr>
+</table>
+<table cellspacing="0" cellpadding="0" class="methodOverview" id="summary">
+<tr><th>Suite</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Priority</th><th>Testcase Description</th><th>Time<br/>(s)</th><th>Groups</th></tr>
+<tr id="t1"><th colspan="5">ChromeTest &#8212; failed</th></tr>
+<tr class="failedodd"><td>net.project.testClasses.HackerrankTestCases.BasicTestCase</td><td><a href="#m1"> </a></td><td class="numi">1</td><td>1433696738054</td><td>2</td><td> </td><td class="numi">0.0</td><td>[]</td></tr>
+<tr><th colspan="5">ChromeTest &#8212; passed</th></tr>
+<tr class="passedodd"><td>net.project.testClasses.HackerrankTestCases.BasicTestCase</td><td><a href="#m2"> </a></td><td class="numi">1</td><td>1433696602050</td><td>1</td><td> </td><td class="numi">1.433696738047E9</td><td>[]</td></tr>
+<tr id="t2"><th colspan="5">PhantomJSTest &#8212; failed</th></tr>
+<tr class="failedodd"><td>net.project.testClasses.HackerrankTestCases.BasicTestCase</td><td><a href="#m3"> </a></td><td class="numi">1</td><td>1433696741848</td><td>2</td><td> </td><td class="numi">0.0</td><td>[]</td></tr>
+<tr><th colspan="5">PhantomJSTest &#8212; passed</th></tr>
+<tr class="passedodd"><td>net.project.testClasses.HackerrankTestCases.BasicTestCase</td><td><a href="#m4"> </a></td><td class="numi">1</td><td>1433696602031</td><td>1</td><td> </td><td class="numi">1.433696741844E9</td><td>[]</td></tr>
+</table>
+<h1>ChromeTest</h1>
+<h2 id="m1">net.project.testClasses.HackerrankTestCases.BasicTestCase:secondTask</h2>
+<div>
+<div class="stacktrace">org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=43.0.2357.81)
+  (Driver info: chromedriver=2.14.313457 (3d645c400edf2e2c500566c9aa096063e707c9cf),platform=Windows NT 6.1 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 9 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: &apos;2.46.0&apos;, revision: &apos;61506a4624b13675f24581e453592342b7485d71&apos;, time: &apos;2015-06-04 10:22:50&apos;
+System info: host: &apos;Adarsha-PC&apos;, ip: &apos;192.168.1.33&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_25&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=C:\Users\Adarsha\AppData\Local\Temp\scoped_dir2508_2631}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.81, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: ec8947246162905e0bd9fdd64352d221
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:605)
+	at org.openqa.selenium.remote.RemoteExecuteMethod.execute(RemoteExecuteMethod.java:35)
+	at org.openqa.selenium.remote.RemoteMouse.mouseMove(RemoteMouse.java:89)
+	at org.openqa.selenium.support.events.internal.EventFiringMouse.mouseMove(EventFiringMouse.java:58)
+	at org.openqa.selenium.interactions.MoveMouseAction.perform(MoveMouseAction.java:39)
+	at org.openqa.selenium.interactions.CompositeAction.perform(CompositeAction.java:50)
+	at org.openqa.selenium.interactions.Actions.perform(Actions.java:371)
+	at net.project.testClasses.HackerrankTestCases.BasicTestCase.secondTask(BasicTestCase.java:85)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 20 stack frames</div>
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m2">net.project.testClasses.HackerrankTestCases.BasicTestCase:firstTask</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>PhantomJSTest</h1>
+<h2 id="m3">net.project.testClasses.HackerrankTestCases.BasicTestCase:secondTask</h2>
+<div>
+<div class="stacktrace">org.openqa.selenium.TimeoutException: Timed out after 20 seconds waiting for net.project.webDriverUtils.WebDriverUtilFunctions$17@8b23417
+Build info: version: &apos;2.46.0&apos;, revision: &apos;61506a4624b13675f24581e453592342b7485d71&apos;, time: &apos;2015-06-04 10:22:50&apos;
+System info: host: &apos;Adarsha-PC&apos;, ip: &apos;192.168.1.33&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.8.0_25&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:260)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
+	at net.project.webDriverUtils.WebDriverUtilFunctions.fluentwaitForPageLoadUsingUrl(WebDriverUtilFunctions.java:873)
+	at net.project.pageClasses.HackerRankPageClasses.DomainsPage.isLoaded(DomainsPage.java:49)
+	at net.project.pageClasses.HackerRankPageClasses.LoginPage.performDefaultLogin(LoginPage.java:165)
+	at net.project.testClasses.HackerrankTestCases.BasicTestCase.secondTask(BasicTestCase.java:73)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 16 stack frames</div>
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m4">net.project.testClasses.HackerrankTestCases.BasicTestCase:firstTask</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+</body></html>

@@ -1,0 +1,407 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>SampleProjects</groupId>
+  <artifactId>SampleProject</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>SampleProject</name>
+  <description>SampleProject</description>
+  <dependencies>
+  <!-- <dependency>
+	<groupId>javax.mail</groupId>
+	<artifactId>mail</artifactId>
+	<version>1.4</version>
+</dependency> -->
+    <dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-java</artifactId>
+</dependency>
+
+<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-server</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-firefox-driver</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-chrome-driver</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-api</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-ie-driver</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-support</artifactId>
+	<version>2.46.0</version>
+</dependency>
+<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-remote-driver</artifactId>
+	<version>2.46.0</version>
+</dependency>
+<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-common</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-remote-control</artifactId>
+</dependency>
+<!--<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-safari-driver</artifactId>
+	<version>2.44.0</version>
+</dependency>
+<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-android-driver</artifactId>
+	<version>2.39.0</version>
+</dependency>
+<dependency>
+	<groupId>org.seleniumhq.selenium</groupId>
+	<artifactId>selenium-android-client</artifactId>
+	<version>2.0b1</version>
+</dependency>-->
+<dependency>
+	<groupId>org.testng</groupId>
+	<artifactId>testng</artifactId>
+	<version>6.8.8</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-core</artifactId>
+	<version>4.1.2.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-context</artifactId>
+	<version>4.1.2.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-beans</artifactId>
+	<version>4.1.2.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-web</artifactId>
+	<version>4.1.2.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-webmvc</artifactId>
+	<version>4.1.2.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-aop</artifactId>
+	<version>4.1.2.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-jdbc</artifactId>
+	<version>4.1.2.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-tx</artifactId>
+	<version>4.1.2.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-context-support</artifactId>
+	<version>4.1.2.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-expression</artifactId>
+	<version>4.1.2.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-aspects</artifactId>
+	<version>4.1.2.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-dao</artifactId>
+	<version>2.0.8</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-binding</artifactId>
+	<version>1.0.6</version>
+</dependency>
+<dependency>
+	<groupId>log4j</groupId>
+	<artifactId>log4j</artifactId>
+	<version>1.2.17</version>
+</dependency>
+
+  <dependency>
+	<groupId>org.apache.maven.surefire</groupId>
+	<artifactId>surefire-api</artifactId>
+	<version>2.18</version>
+</dependency>
+  <dependency>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi</artifactId>
+	<version>3.11-beta2</version>
+</dependency>  
+<dependency>
+	<groupId>javax.mail</groupId>
+	<artifactId>mail</artifactId>
+	<version>1.5.0-b01</version>
+</dependency>
+<dependency>
+	<groupId>com.itextpdf</groupId>
+	<artifactId>itextpdf</artifactId>
+	<version>5.4.3</version>
+</dependency>
+
+<dependency>
+		<groupId>com.itextpdf.tool</groupId>
+		<artifactId>xmlworker</artifactId>
+		<version>5.4.1</version>
+</dependency>
+
+  	<dependency>
+  		<groupId>org.seleniumhq.selenium</groupId>
+  		<artifactId>selenium-xlator</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.codeborne</groupId>
+  		<artifactId>phantomjsdriver</artifactId>
+  	</dependency>
+  </dependencies>
+  <build>
+  <plugins>
+  <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <showDeprecation>true</showDeprecation>
+                    <compilerArgs>
+                    <compilerArgument>-parameters</compilerArgument>
+                    </compilerArgs>
+                    
+                </configuration>
+            </plugin>
+            <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.18</version>
+        <configuration>  
+		<suiteXmlFiles>         
+            <!-- <suiteXmlFile>src\test\resources\testsuites\hybrid.xml</suiteXmlFile> -->
+            <suiteXmlFile>src\test\resources\testsuites\sampleSuite.xml</suiteXmlFile>
+          </suiteXmlFiles>
+          <testFailureIgnore>true</testFailureIgnore>
+        </configuration>
+      </plugin>
+      <plugin>  
+   <groupId>org.codehaus.mojo</groupId>  
+   <artifactId>exec-maven-plugin</artifactId>  
+   <version>1.3.2</version>  
+   <executions>  
+    <execution>  
+     <phase>test</phase>  
+     <goals>  
+      <goal>java</goal>  
+     </goals>  
+     </execution>  
+   </executions>   
+     <configuration>  
+     <cleanupDaemonThreads>false</cleanupDaemonThreads>
+     <killAfter>0</killAfter>
+     <!-- <includeProjectDependencies>true</includeProjectDependencies> -->
+     <!-- <includePluginDependencies>true</includePluginDependencies> -->
+      <mainClass>net.project.webDriverUtils.TestsFinalizationClass</mainClass>
+      <arguments>
+      <argument>arg0</argument>
+      </arguments>
+     <classpathScope>test</classpathScope>
+     </configuration>        
+  </plugin>
+  
+  <!-- <plugin>
+ <groupId>org.apache.maven.plugins</groupId>
+ <artifactId>maven-antrun-plugin</artifactId>
+ <version>1.8</version>
+ <executions>
+    <execution>
+        <phase>pre-integration-test</phase> your Selenium tests should run in integration phase
+        <configuration>
+            <target>
+                <java classname="org.openqa.grid.selenium.GridLauncher"
+                      classpathref="maven.test.classpath"
+                      failonerror="true"
+                      fork="false">
+                    <arg line="-role hub  -port 4441 -timeout 40000"/>
+                </java>
+                <java classname="org.openqa.grid.selenium.GridLauncher"
+                      classpathref="maven.test.classpath"
+                      failonerror="true"
+                      fork="false">
+                    <arg line="-role node
+                               -browser 'browserName=firefox, maxInstances=3'
+                               -browser 'browserName=internet explorer, maxInstances=3'
+                               -browser 'browserName=chrome, maxInstances=3'
+                               -browser 'browserName=phantomjs, maxInstances=3'
+                               -hub http://localhost:4441/grid/register 
+                               -port 5557 
+                               -timeout 40000"/>
+                </java>
+                <java classname="org.openqa.grid.selenium.GridLauncher"
+                      classpathref="maven.test.classpath"
+                      failonerror="true"
+                      fork="false">
+                    <arg line="-role node
+                               -browser 'browserName=firefox, maxInstances=3'
+                               -browser 'browserName=internet explorer, maxInstances=3'
+                               -browser 'browserName=chrome, maxInstances=3'
+                               -browser 'browserName=phantomjs, maxInstances=3'
+                               -hub http://localhost:4441/grid/register 
+                               -port 5558
+                               -timeout 40000"/>
+                </java>
+            </target>
+        </configuration>
+        <goals>
+            <goal>run</goal>
+        </goals>
+    </execution>
+</executions>
+</plugin> -->
+  
+   <!-- <plugin>
+			<groupId>ch.fortysix</groupId>
+			<artifactId>maven-postman-plugin</artifactId>
+			<version>0.1.6</version>
+			<executions>
+			<execution>
+			<id>send_an_email</id>
+			<phase>test</phase>
+			<goals>
+			<goal>send-mail</goal>
+			</goals>
+			<configuration>
+			<mailAltConfig>true</mailAltConfig>
+			<mailhost>smtp.gmail.com</mailhost>
+			<mailport>465</mailport>
+			<mailssl>true</mailssl>
+			<textMessage>Reports are hereby attached</textMessage>
+			<mailuser>adarsha.shetty.1989@gmail.com</mailuser>
+			<from>adarsha.shetty.1989@gmail.com</from>
+			<mailpassword>xiivvvaxucyuhqyr</mailpassword>
+			<receivers>
+			<receiver>adarsha.shetty.1989@gmail.com</receiver>
+			</receivers>
+			<subject>TestExecutionReport as on ${maven.build.timestamp}</subject>
+			<failonerror>false</failonerror>
+			<fileSets>
+			<fileSet>
+			<directory>${project.basedir}/target</directory>
+			<includes>	
+			<include>**/surefire-reports/emailable-report.html</include>				
+			</includes>
+			</fileSet>
+			</fileSets>
+			</configuration>
+			</execution>
+			</executions>
+		</plugin> -->
+		
+		<!-- <plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-assembly-plugin</artifactId>
+			  <configuration>
+			    <descriptor>src/assembly/bin.xml</descriptor>
+			    <finalName>apache-maven-cookbook-${pom.version}</finalName>					    
+			  </configuration>
+			  <executions>
+			    <execution>
+			      <phase>test</phase>
+			      <goals>
+			        <goal>single</goal>
+			      </goals>
+			    </execution>
+			  </executions>
+		</plugin>	 -->
+  </plugins>
+  </build>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>org.seleniumhq.selenium</groupId>
+  			<artifactId>selenium-ie-driver</artifactId>
+  			<version>2.46.0</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.seleniumhq.selenium</groupId>
+  			<artifactId>selenium-chrome-driver</artifactId>
+  			<version>2.46.0</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.seleniumhq.selenium</groupId>
+  			<artifactId>selenium-common</artifactId>
+  			<version>2.0b1</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.seleniumhq.selenium</groupId>
+  			<artifactId>selenium-remote-control</artifactId>
+  			<version>2.0rc2</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.seleniumhq.selenium</groupId>
+  			<artifactId>selenium-xlator</artifactId>
+  			<version>1.0.1</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.seleniumhq.selenium</groupId>
+  			<artifactId>selenium-htmlunit-driver</artifactId>
+  			<version>2.46.0</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.seleniumhq.selenium</groupId>
+  			<artifactId>selenium-api</artifactId>
+  			<version>2.46.0</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.seleniumhq.selenium</groupId>
+  			<artifactId>selenium-java</artifactId>
+  			<version>2.46.0</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.seleniumhq.selenium</groupId>
+  			<artifactId>selenium-server</artifactId>
+  			<version>2.46.0</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.seleniumhq.selenium</groupId>
+  			<artifactId>selenium-firefox-driver</artifactId>
+  			<version>2.46.0</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>com.github.detro</groupId>
+  			<artifactId>phantomjsdriver</artifactId>
+  			<version>1.2.0</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>com.codeborne</groupId>
+  			<artifactId>phantomjsdriver</artifactId>
+  			<version>1.2.1</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
+</project>

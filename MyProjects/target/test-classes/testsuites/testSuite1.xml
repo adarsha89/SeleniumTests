@@ -1,0 +1,16 @@
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite1" parallel="tests">
+<listeners>
+ <listener class-name="net.project.listeners.AppListener">
+ </listener>
+</listeners>
+<test name="FirefoxTest" preserve-order="true" >
+ <parameter name="browser" value="Firefox" />
+ <classes> 
+ <class name="net.project.testFactories.CompleteTestFactory"  >
+ </class>
+ </classes>
+</test>
+ </suite>
+ 

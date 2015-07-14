@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="HybridTestSuite"  parallel="tests">
+<listeners>
+ <listener class-name="net.project.listeners.AppListener"/>
+ <listener class-name="net.project.listeners.AnnotationsListener"/>
+</listeners>
+<test name="ChromeTest" preserve-order="true" >
+<parameter name="testName" value="ChromeTest"></parameter>
+ <parameter name="browser" value="PhantomJS" />
+ <parameter name="testCaseDocument" value="TestCases"></parameter>
+ <parameter name="testCaseSheet" value="HybridTestCases"></parameter>
+ <classes>
+ <class name="net.project.testFactories.GlobalTestFactory"  />
+ </classes>
+</test>
+</suite>
+ 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Suite1]" parallel="tests">
+  <parameter name="browser" value="PhantomJS"/>
+  <listeners>
+    <listener class-name="net.project.listeners.AppListener"/>
+  </listeners>
+  <test name="ChromeTest(failed)" parallel="tests">
+    <parameter name="browser" value="Chrome"/>
+    <classes>
+      <class name="net.project.testClasses.HackerrankTestCases.BasicTestCase">
+        <methods>
+          <include name="secondTask"/>
+        </methods>
+      </class> <!-- net.project.testClasses.HackerrankTestCases.BasicTestCase -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+  <test name="PhantomJSTest(failed)" parallel="tests">
+    <parameter name="browser" value="PhantomJS"/>
+    <classes>
+      <class name="net.project.testClasses.HackerrankTestCases.BasicTestCase">
+        <methods>
+          <include name="secondTask"/>
+        </methods>
+      </class> <!-- net.project.testClasses.HackerrankTestCases.BasicTestCase -->
+    </classes>
+  </test> <!-- PhantomJSTest(failed) -->
+</suite> <!-- Failed suite [Suite1] -->
