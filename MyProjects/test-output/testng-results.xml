@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite1" duration-ms="228610" started-at="2015-07-15T05:33:04Z" finished-at="2015-07-15T05:36:53Z">
+  <suite name="Suite1" duration-ms="248433" started-at="2015-07-15T06:33:49Z" finished-at="2015-07-15T06:37:58Z">
     <groups>
     </groups>
-    <test name="SafariTest" duration-ms="228610" started-at="2015-07-15T05:33:04Z" finished-at="2015-07-15T05:36:53Z">
+    <test name="SafariTest" duration-ms="248433" started-at="2015-07-15T06:33:49Z" finished-at="2015-07-15T06:37:58Z">
       <class name="net.project.HackerRankForWork.TestClasses.SanityTestClass">
-        <test-method status="PASS" signature="checkForHackerrankForWorkLoginPage()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="checkForHackerrankForWorkLoginPage" is-config="true" duration-ms="24274" started-at="2015-07-15T11:03:04Z" finished-at="2015-07-15T11:03:28Z">
+        <test-method status="PASS" signature="checkForHackerrankForWorkLoginPage()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="checkForHackerrankForWorkLoginPage" is-config="true" duration-ms="25750" started-at="2015-07-15T12:03:49Z" finished-at="2015-07-15T12:04:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkForHackerrankForWorkLoginPage -->
-        <test-method status="PASS" signature="codePairSanityTest1()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="codePairSanityTest1" duration-ms="1436938471835" started-at="2015-07-15T11:03:28Z" finished-at="2061-01-25T16:38:00Z">
+        <test-method status="PASS" signature="codePairSanityTest1()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="codePairSanityTest1" duration-ms="1436942124738" started-at="2015-07-15T12:04:15Z" finished-at="2061-01-25T18:39:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- codePairSanityTest1 -->
-        <test-method status="PASS" signature="checkForHackerrankForWorkLoginPage()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="checkForHackerrankForWorkLoginPage" is-config="true" duration-ms="12716" started-at="2015-07-15T11:04:31Z" finished-at="2015-07-15T11:04:44Z">
+        <test-method status="PASS" signature="checkForHackerrankForWorkLoginPage()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="checkForHackerrankForWorkLoginPage" is-config="true" duration-ms="14436" started-at="2015-07-15T12:05:24Z" finished-at="2015-07-15T12:05:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkForHackerrankForWorkLoginPage -->
-        <test-method status="PASS" signature="codePairSanityTest2(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="codePairSanityTest2" duration-ms="1436938539306" started-at="2015-07-15T11:04:44Z" data-provider="candidateAndInterviewerInfoProviderMethod" finished-at="2061-01-25T16:40:23Z">
+        <test-method status="PASS" signature="codePairSanityTest2(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="codePairSanityTest2" duration-ms="1436942192074" started-at="2015-07-15T12:05:39Z" data-provider="candidateAndInterviewerInfoProviderMethod" finished-at="2061-01-25T18:42:11Z">
           <params>
             <param index="0">
               <value>
@@ -45,11 +45,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- codePairSanityTest2 -->
-        <test-method status="PASS" signature="checkForHackerrankForWorkLoginPage()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="checkForHackerrankForWorkLoginPage" is-config="true" duration-ms="12418" started-at="2015-07-15T11:05:39Z" finished-at="2015-07-15T11:05:51Z">
+        <test-method status="PASS" signature="checkForHackerrankForWorkLoginPage()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="checkForHackerrankForWorkLoginPage" is-config="true" duration-ms="14641" started-at="2015-07-15T12:06:32Z" finished-at="2015-07-15T12:06:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkForHackerrankForWorkLoginPage -->
-        <test-method status="PASS" signature="codePairSanityTest3(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="codePairSanityTest3" duration-ms="1436938612515" started-at="2015-07-15T11:05:51Z" data-provider="candidateAndInterviewerInfoProviderMethod" finished-at="2061-01-25T16:42:44Z">
+        <test-method status="PASS" signature="codePairSanityTest3(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="codePairSanityTest3" duration-ms="1436942271234" started-at="2015-07-15T12:06:46Z" data-provider="candidateAndInterviewerInfoProviderMethod" finished-at="2061-01-25T18:44:37Z">
           <params>
             <param index="0">
               <value>
@@ -75,7 +75,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- codePairSanityTest3 -->
-        <test-method status="PASS" signature="tearDownInterviewTask()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="tearDownInterviewTask" is-config="true" duration-ms="627" started-at="2015-07-15T11:06:52Z" finished-at="2015-07-15T11:06:53Z">
+        <test-method status="PASS" signature="tearDownInterviewTask()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@6aa8e115]" name="tearDownInterviewTask" is-config="true" duration-ms="6799" started-at="2015-07-15T12:07:51Z" finished-at="2015-07-15T12:07:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownInterviewTask -->
