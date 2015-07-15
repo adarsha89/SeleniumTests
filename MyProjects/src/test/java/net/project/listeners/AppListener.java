@@ -47,8 +47,7 @@ import org.testng.internal.Utils;
 import org.testng.xml.XmlSuite;
 
 public class AppListener  implements ISuiteListener,ITestListener,IExecutionListener,IInvokedMethodListener, WebDriverEventListener,IReporter /*, IAnnotationTransformer2*/{
-
-	
+public List<Long> threadRunTimes=new ArrayList<Long>();
 	//////private static final Logger L = Logger.getLogger(AppListener.class);
 
     // ~ Instance fields ------------------------------------------------------
@@ -1106,6 +1105,22 @@ public class AppListener  implements ISuiteListener,ITestListener,IExecutionList
 	}
 
 */
-	
+    public void testEnded() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void testEnded(String arg0) {
+		// TODO Auto-generated method stub
+	}
+
+	public void testStarted() {
+		// TODO Auto-generated method stub
+	}
+
+	public void testStarted(String arg0) {
+		// TODO Auto-generated method stub
+	}
+
 
 }

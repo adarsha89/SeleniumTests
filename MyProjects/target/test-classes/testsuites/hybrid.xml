@@ -6,7 +6,7 @@
 </listeners>
 <test name="ChromeTest" preserve-order="true" >
 <parameter name="testName" value="ChromeTest"></parameter>
- <parameter name="browser" value="PhantomJS" />
+ <parameter name="browser" value="Safari" />
  <parameter name="testCaseDocument" value="TestCases"></parameter>
  <parameter name="testCaseSheet" value="HybridTestCases"></parameter>
  <classes>

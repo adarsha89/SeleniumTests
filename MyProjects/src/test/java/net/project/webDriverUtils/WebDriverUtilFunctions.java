@@ -3,14 +3,19 @@
  */
 package net.project.webDriverUtils;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Field;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -31,14 +36,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.logging.LogType;
+import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
-import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.ErrorHandler.UnknownServerException;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.ScreenshotException;
 import org.openqa.selenium.remote.UnreachableBrowserException;
+import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -47,6 +55,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.annotation.Configuration;
 
 import com.google.common.base.Function;
+import com.google.sitebricks.client.Web;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -83,18 +92,19 @@ import javax.mail.internet.MimeMultipart;
 @Configuration
 public class WebDriverUtilFunctions {
 	public static Map<String,ArrayList<String>> mapOfSuitesAndTestCases = new HashMap<String, ArrayList<String>>();
-EventFiringWebDriver eventFiringWebDriver;	
-AppListener projectListener=new AppListener();
+	EventFiringWebDriver eventFiringWebDriver;	
+	AppListener projectListener=new AppListener();
+	WebDriverFactory webDriverFactory=null;
 	/** The scr file. */
 	File scrFile=null;
 	/** The base url. */
 	//String baseURL="http://www.store.demoqa.com";
-	
-	/** The node url. */
-	 String nodeURL="http://localhost:4441/wd/hub";
+	public static final String USERNAME = "hackerrank";
+	  public static final String AUTOMATE_KEY = "nt6JzvpM3fqCo3c5cRMA";
+	  public static final String nodeURL = "http://" + USERNAME + ":" + AUTOMATE_KEY + "@hub.browserstack.com/wd/hub";
 	
 	/** The html unit driver. */
-	  WebDriver ieWebDriver, chromeWebDriver , firefoxWebDriver, phantomJSDriver;
+	  WebDriver ieWebDriver, chromeWebDriver , firefoxWebDriver, phantomJSDriver,safariWebDriver;
 	
 	/** The firefox remote web driver. */
 	  WebDriver ieRemoteWebDriver, chromeRemoteWebDriver , firefoxRemoteWebDriver , phantomJSRemoteWebDriver;
@@ -108,35 +118,8 @@ AppListener projectListener=new AppListener();
 	public EventFiringWebDriver setupTest(String browser)
 	{
 		WebDriver webDriver=null;
-		switch(browser)
-		{
-		case "Chrome":
-			webDriver= chromeWebDriver();
-			break;
-		case "IE":
-			webDriver= ieWebDriver();
-			break;
-		case "Firefox":
-			webDriver= firefoxWebDriver();
-			break;
-		case "PhantomJS":
-			webDriver=phantomJSDriver();
-			break;
-			
-		case "ChromeRemote":
-			webDriver= chromeRemoteWebDriver();
-			break;
-		case "IERemote":
-			webDriver= ieRemoteWebDriver();
-			break;
-		case "FirefoxRemote":
-			webDriver= firefoxRemoteWebDriver();
-			break;
-		case "PhantomJSRemote":
-			webDriver=phantomJSRemoteWebDriver();
-			break;
-		
-		}		
+		webDriverFactory=new WebDriverFactory();
+		webDriver=webDriverFactory.getWebDriver(browser);
 		eventFiringWebDriver=new EventFiringWebDriver(webDriver);
 		eventFiringWebDriver.register(projectListener);
 		webDriver.manage().window().maximize();
@@ -176,18 +159,16 @@ AppListener projectListener=new AppListener();
 	}
 	  
 	static {
-		System.setProperty("webdriver.ie.driver", "src/test/resources/driverexefiles/IEDriverServer.exe");
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/driverexefiles/chromedriver.exe");
-		System.setProperty("phantomjs.binary.path", "src/test/resources/driverexefiles/phantomjs.exe");
+		//System.setProperty("webdriver.ie.driver", "src/test/resources/driverexefiles/IEDriverServer");
+		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+		System.setProperty("phantomjs.binary.path", "/usr/bin/phantomjs");
 		//System.setProperty("webdriver.firefox.port", "8082");
 		//ApplicationContext applicationContext=new ClassPathXmlApplicationContext("employee-servlet.xml");
 		AppLogger.logInfo("Logger has been configured successfully");
-		
-		
 		}
 	
 	
-	public  WebDriver ieWebDriver()
+	/*public  WebDriver ieWebDriver()
 	{	
 		DesiredCapabilities capability = DesiredCapabilities.internetExplorer();
 		capability.setCapability("databaseEnabled", true);
@@ -198,7 +179,7 @@ AppListener projectListener=new AppListener();
 		capability.setCapability("acceptSslCerts", true);
 		capability.setJavascriptEnabled(true);
 		capability.setCapability("nativeEvents", true);
-		capability.setPlatform(Platform.WINDOWS);
+		capability.setPlatform(Platform.MAC);
 		InternetExplorerDriver internetExplorerDriver=new InternetExplorerDriver(capability);
 		internetExplorerDriver.manage().window().maximize();
 		return internetExplorerDriver;	
@@ -215,12 +196,28 @@ AppListener projectListener=new AppListener();
 		capability.setCapability("acceptSslCerts", true);
 		capability.setJavascriptEnabled(true);
 		capability.setCapability("nativeEvents", true);
-		capability.setPlatform(Platform.WINDOWS);
+		capability.setPlatform(Platform.MAC);
 		firefoxWebDriver = new FirefoxDriver(capability);
 		firefoxWebDriver.manage().window().maximize();
 		return firefoxWebDriver;
 	}
 	
+	public   WebDriver safariWebDriver()
+	{
+		DesiredCapabilities capability = DesiredCapabilities.safari();
+		capability.setCapability("databaseEnabled", true);
+		capability.setCapability("locationContextEnabled", true);
+		capability.setCapability("applicationCacheEnabled", true);
+		capability.setCapability("browserConnectionEnabled", true);
+		capability.setCapability("webStorageEnabled", true);
+		capability.setCapability("acceptSslCerts", true);
+		capability.setJavascriptEnabled(true);
+		capability.setCapability("nativeEvents", true);
+		capability.setPlatform(Platform.MAC);
+		safariWebDriver = new SafariDriver();
+		safariWebDriver.manage().window().maximize();
+		return safariWebDriver;
+	}
 	public   WebDriver chromeWebDriver()
 	{	
 		
@@ -232,13 +229,15 @@ AppListener projectListener=new AppListener();
 		capability.setCapability("webStorageEnabled", true);
 		capability.setCapability("acceptSslCerts", true);
 		capability.setJavascriptEnabled(true);
-		capability.setCapability("nativeEvents", true);
-		capability.setPlatform(Platform.WINDOWS);
-		
+		//capability.setCapability("nativeEvents", true);
+		//LoggingPreferences prefs = new LoggingPreferences();
+        prefs.enable(LogType.BROWSER, Level.ALL);
+        //prefs.enable(LogType.DRIVER, Level.ALL);
+        prefs.enable(LogType.CLIENT, Level.ALL);
+        //capability.setCapability(CapabilityType.LOGGING_PREFS, prefs);		
 		chromeWebDriver = new ChromeDriver(capability);	
 		chromeWebDriver.manage().window().maximize();
-		return chromeWebDriver;
-		
+		return chromeWebDriver;		
 	}
 	
 	public  WebDriver phantomJSDriver()
@@ -246,7 +245,7 @@ AppListener projectListener=new AppListener();
 		
 		DesiredCapabilities desiredCapabilities= DesiredCapabilities.phantomjs();
 		desiredCapabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, System.getProperty("phantomjs.binary.path"));
-		desiredCapabilities.setCapability("phantomjs.binary.path", "src/test/resources/driverexefiles/phantomjs.exe");
+		desiredCapabilities.setCapability("phantomjs.binary.path", System.getProperty("phantomjs.binary.path"));
 		desiredCapabilities.setCapability("databaseEnabled", true);
 		desiredCapabilities.setCapability("locationContextEnabled", true);
 		desiredCapabilities.setCapability("applicationCacheEnabled", true);
@@ -259,7 +258,7 @@ AppListener projectListener=new AppListener();
 		phantomJSDriver=new PhantomJSDriver(desiredCapabilities);
 		phantomJSDriver.manage().window().maximize();
 		return phantomJSDriver;
-	}
+	}*/
 	
 	public  WebDriver phantomJSRemoteWebDriver()
 	{
@@ -280,28 +279,45 @@ AppListener projectListener=new AppListener();
 	{
 		System.out.println("Creating chromeremotedriver");
 		
-		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		capabilities.setVersion("39");
-		capabilities.setPlatform(Platform.WINDOWS);
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability("browser", "IE");
+		capabilities.setCapability("browser_version", "7.0");
+		capabilities.setCapability("os", "Windows");
+		capabilities.setCapability("os_version", "XP");
+		capabilities.setCapability("browserstack.debug", "true");
+		
+		
+		/*DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability("browser", "Chrome");
+		capabilities.setCapability("browser_version", "43");
+		capabilities.setCapability("os", "OS X");
+		capabilities.setCapability("os_version", "Yosemite");
+		capabilities.setCapability("browserstack.local", "true");
+		capabilities.setCapability("browserstack.debug", "true");
+		capabilities.setCapability("browserstack.selenium_version", "2.45");
+		*/
+		/*capabilities.setVersion("43");
+		capabilities.setPlatform(Platform.MAC);*/
 		RemoteWebDriver driver=null;
 		try {
 			driver = new RemoteWebDriver(new URL(nodeURL),capabilities);
-			System.out.println("RemoteWebdriver has been initialized");
+			System.out.println("RemoteChromeWebdriver has been initialized");
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Malformed url exception");
 		}		
-		//driver.get(baseURL);
 		chromeRemoteWebDriver=driver;
 		return driver;		
 	}
 	
 	public  RemoteWebDriver ieRemoteWebDriver()
 	{
-		DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-		capabilities.setBrowserName(BrowserType.IE);
-		capabilities.setPlatform(Platform.WINDOWS);
-		capabilities.setVersion("11.0");
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability("browser", "IE");
+		capabilities.setCapability("browser_version", "7.0");
+		capabilities.setCapability("os", "Windows");
+		capabilities.setCapability("os_version", "XP");
+		capabilities.setCapability("browserstack.debug", "true");
 		RemoteWebDriver driver=null;
 		try {
 			driver = new RemoteWebDriver(new URL(nodeURL),capabilities);
@@ -336,31 +352,8 @@ AppListener projectListener=new AppListener();
 	 */
 	
 	public void goToURL(String url, WebDriver webDriver)
-	{
-		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(webDriver);
-		wait.pollingEvery(100,  TimeUnit.MILLISECONDS);
-		wait.withTimeout(3, TimeUnit.SECONDS).ignoring(Exception.class,UnreachableBrowserException.class);
-		
-		Function<WebDriver, Boolean> function = new Function<WebDriver, Boolean>()
-				{
-					public Boolean apply(WebDriver webDriver) {
-						webDriver.get(url);
-						
-							if(webDriver.getCurrentUrl().equals(url))
-							{
-								return true;
-							}
-						
-						
-						
-						return false;
-					}
-				};
- 
-	
-			 	wait.until(function);
-		
-		
+	{	
+	webDriver.get(url);	
 	}
 	public String getAttributeOfElement(WebElement webElement, String attributeName)
 	{
@@ -565,7 +558,7 @@ AppListener projectListener=new AppListener();
 	{
 		FluentWait<WebElement> wait = new FluentWait<WebElement>(webElement);
 		wait.pollingEvery(50,  TimeUnit.MILLISECONDS);
-		wait.withTimeout(5, TimeUnit.SECONDS).ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
+		wait.withTimeout(20, TimeUnit.SECONDS).ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
 		
 		Function<WebElement, Boolean> function = new Function<WebElement, Boolean>()
 				{
@@ -681,6 +674,54 @@ AppListener projectListener=new AppListener();
 			
 		
 	}
+	
+	public  void addTexttoAnElement(WebDriver webDriver, int maxNumberOfSeconds)
+	{
+
+		Long startTimeInmilliseconds=System.currentTimeMillis();
+		
+		Integer numberOfseconds=new Integer(maxNumberOfSeconds*1000);
+		String completionStatus="";
+			
+			while((System.currentTimeMillis()-startTimeInmilliseconds)<numberOfseconds)
+			{
+				if (webDriver instanceof JavascriptExecutor) {
+					try
+					{
+						completionStatus=(String)((JavascriptExecutor) webDriver).executeScript("return document.readyState");
+						
+					}catch(UnreachableBrowserException ex)
+					{
+						
+					}
+				if(completionStatus.equals("complete"))
+				{
+					break;
+				}
+				}
+			}
+			
+		
+	}
+	
+	
+	public void moveToAndClickOnElementAndTypeKeys(WebDriver webDriver, String cssPath, String text)
+	{
+		WebDriverUtilFunctions webDriverUtilFunctions=new WebDriverUtilFunctions();
+		Actions actions=new Actions(webDriver);
+		actions.moveToElement(webDriverUtilFunctions.getWebElementByCss(webDriver, cssPath, 20)).click().build().perform();
+		actions.moveToElement(webDriverUtilFunctions.getWebElementByCss(webDriver, cssPath, 20)).clickAndHold().release().click().sendKeys(text).build().perform();
+	}
+	public void moveToAndClickOnElement(WebDriver webDriver, String cssPath)
+	{
+		WebDriverUtilFunctions webDriverUtilFunctions=new WebDriverUtilFunctions();
+		Actions actions=new Actions(webDriver);
+		actions.moveToElement(webDriverUtilFunctions.getWebElementByCss(webDriver, cssPath, 20)).clickAndHold().release().click().build().perform();
+	}
+	
+	
+	
+	
 	
 	public  void waitForAjaxQueryCompletion(WebDriver webDriver, int maxNumberOfSeconds)
 	{
@@ -976,6 +1017,12 @@ AppListener projectListener=new AppListener();
 		
 		
 	}
+	
+	public void reactToPopupMesage(String jQueryIdentifier)
+	{
+		
+	}
+	
 	public static void emailTestReport()
 	{
 		//generatePDFReport("target/surefire-reports/emailable-report.pdf");
@@ -1204,7 +1251,136 @@ AppListener projectListener=new AppListener();
 		}
 		
 	}
+
+	public void maximizeWindow(WebDriver webDriver) {
+		webDriver.manage().window().maximize();
+		
+	}
+
+	public void clickAnElementUsingJavascript(WebDriver webDriver,String string) {
+		// TODO Auto-generated method stub
+if (webDriver instanceof JavascriptExecutor) {
+			
+			JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
+			javascriptExecutor.executeScript(string, "");
+		}
+	}
+	public void findBrokenLinks(WebDriver webDriver)
+	{
+		BrokenLinksFinder brokenLinksFinder=new BrokenLinksFinder();
+		try {
+			brokenLinksFinder.findBrokenLinks(webDriver);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
+	
+	public Object instantiatePage(WebDriver webDriver, String pageClassName)
+	{
+		Object object=null;
+		try {
+			object=PageFactory.initElements(webDriver, Class.forName(pageClassName));
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return object;
+	}
+	public Object instantiatePageWithUrl(WebDriver webDriver, String url, String pageClassName)
+	{
+		Object object=null;
+		try {
+			object=PageFactory.initElements(webDriver, Class.forName(pageClassName));
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		SpyClass spyObject=new SpyClass();
+		Object fieldObject=spyObject.getFieldObjectUsingFieldNameAndObject("url", object);
+		fieldObject=url;
+		goToURL(url, webDriver);
+		return object;
+	}
+	
+	public void enterCodeInEditor(WebDriver webDriver, List<String> codeList)
+	{
+		for(String lineOfCode:codeList)
+		{
+			if (webDriver instanceof JavascriptExecutor) {
+				try
+				{
+					 ((JavascriptExecutor) webDriver).executeScript("window.CodePair.editor.insert('"+lineOfCode+"');window.CodePair.editor.splitLine();window.CodePair.editor.navigateDown(1);window.CodePair.editor.navigateLineStart();");
+					
+				}catch(Exception ex)
+				{
+					AppLogger.logInfo("Exception occured");
+				}
+			}
+		}
+		
+	}
+	
+	
+	public String getJSONStringFromUrl(String jsonUrl)
+	{
+
+
+		StringBuilder outputComplete=new StringBuilder();
+		String output=null;
+		  try {
+	 
+			URL url = new URL(jsonUrl);
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod("GET");
+			conn.setRequestProperty("Accept", "application/json");
+	 
+			if (conn.getResponseCode() != 200) {
+				throw new RuntimeException("Failed : HTTP error code : "
+						+ conn.getResponseCode());
+			}
+	 
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+				(conn.getInputStream())));
+	 
+			
+			System.out.println("Output from Server .... \n");
+			while ((output = br.readLine()) != null) {
+				outputComplete.append(output+"\n");
+			}
+	 
+			conn.disconnect();
+	 
+		  } catch (MalformedURLException e) {
+	 
+			e.printStackTrace();
+	 
+		  } catch (IOException e) {
+	 
+			e.printStackTrace();
+	 
+		  }
+		  return outputComplete.toString();
+		  //output=outputComplete.toString().split(":")[2].split(",")[0];
+		  //System.out.println(output);
+		    
+	}
+
+	public void runJavascript(String javaScript, WebDriver webDriver) {
+		// TODO Auto-generated method stub
+		if (webDriver instanceof JavascriptExecutor) {
+			try
+			{
+				((JavascriptExecutor) webDriver).executeScript(javaScript);
+				
+			}catch(UnreachableBrowserException ex)
+			{
+				
+			}
+		}
+	}
 	}
 	
 

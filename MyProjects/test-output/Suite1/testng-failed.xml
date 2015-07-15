@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite1]" parallel="tests">
-  <parameter name="browser" value="PhantomJS"/>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite1]">
+  <parameter name="browser" value="Firefox"/>
+  <parameter name="browser2" value="Firefox"/>
+  <parameter name="browser1" value="Firefox"/>
   <listeners>
     <listener class-name="net.project.listeners.AppListener"/>
   </listeners>
-  <test name="ChromeTest(failed)" parallel="tests">
-    <parameter name="browser" value="Chrome"/>
+  <test name="SafariTest(failed)">
+    <parameter name="browser" value="Firefox"/>
+    <parameter name="browser2" value="Firefox"/>
+    <parameter name="browser1" value="Firefox"/>
     <classes>
-      <class name="net.project.testClasses.HackerrankTestCases.BasicTestCase">
+      <class name="net.project.HackerRankForWork.TestClasses.SanityTestClass">
         <methods>
-          <include name="firstTask"/>
+          <include name="codePairSanityTest3" invocation-numbers="0"/>
+          <include name="tearDownInterviewTask"/>
+          <include name="checkForHackerrankForWorkLoginPage"/>
         </methods>
-      </class> <!-- net.project.testClasses.HackerrankTestCases.BasicTestCase -->
+      </class> <!-- net.project.HackerRankForWork.TestClasses.SanityTestClass -->
     </classes>
-  </test> <!-- ChromeTest(failed) -->
+  </test> <!-- SafariTest(failed) -->
 </suite> <!-- Failed suite [Suite1] -->

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [CodePairSanitySuite]">
+  <parameter name="browser" value="Chrome"/>
+  <parameter name="browser2" value="Chrome"/>
+  <parameter name="browser1" value="Chrome"/>
+  <listeners>
+    <listener class-name="net.project.listeners.AppListener"/>
+  </listeners>
+  <test name="SafariTest(failed)">
+    <parameter name="browser" value="Chrome"/>
+    <parameter name="browser2" value="Chrome"/>
+    <parameter name="browser1" value="Chrome"/>
+    <classes>
+      <class name="net.project.testClasses.HackerrankForWork.CodePair.SanityTestClass">
+        <methods>
+          <include name="codePairSanityTest2"/>
+          <include name="tearDownInterviewTask"/>
+          <include name="checkForHackerrankForWorkLoginPage"/>
+        </methods>
+      </class> <!-- net.project.testClasses.HackerrankForWork.CodePair.SanityTestClass -->
+    </classes>
+  </test> <!-- SafariTest(failed) -->
+</suite> <!-- Failed suite [CodePairSanitySuite] -->

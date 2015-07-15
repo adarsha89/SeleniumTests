@@ -48,12 +48,12 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Suite1">
-                    <span>D:\Eclipse Workspace\MyProjects\src\test\resources\testsuites\sampleSuite.xml</span>
+                    <span>CodePairSanitySuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="testlist-Suite1">
-                    <span class="test-stats">2 tests</span>
+                    <span class="test-stats">1 test</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,7 +90,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,12 +101,17 @@
                     <div class="method-list-content passed suite-Suite1">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite1" title="net.project.testClasses.HackerrankTestCases.BasicTestCase" hash-for-method="firstTask">firstTask</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite1" title="net.project.HackerRankForWork.TestClasses.SanityTestClass" hash-for-method="codePairSanityTest1">codePairSanityTest1</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite1" title="net.project.testClasses.HackerrankTestCases.BasicTestCase" hash-for-method="firstTask">firstTask</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite1" title="net.project.HackerRankForWork.TestClasses.SanityTestClass" hash-for-method="codePairSanityTest2(candy1@gmail.com, Candyman, 9999999999, Ross:Phoebe:Joey:Rachel:Chandler)">codePairSanityTest2(candy1@gmail.com, Candyman, 9999999999, Ross:Phoebe:Joey:Rachel:Chandler)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite1" title="net.project.HackerRankForWork.TestClasses.SanityTestClass" hash-for-method="codePairSanityTest3(candy1@gmail.com, Candyman, 9999999999, Ross:Phoebe:Joey:Rachel:Chandler)">codePairSanityTest3(candy1@gmail.com, Candyman, 9999999999, Ross:Phoebe:Joey:Rachel:Chandler)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite1 -->
@@ -124,21 +129,30 @@
           <div class="suite-Suite1-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">net.project.testClasses.HackerrankTestCases.BasicTestCase</span>
+              <span class="class-name">net.project.HackerRankForWork.TestClasses.SanityTestClass</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="firstTask">
-                  </a> <!-- firstTask -->
-                  <span class="method-name">firstTask</span>
+                  <a name="codePairSanityTest1">
+                  </a> <!-- codePairSanityTest1 -->
+                  <span class="method-name">codePairSanityTest1</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="firstTask">
-                  </a> <!-- firstTask -->
-                  <span class="method-name">firstTask</span>
+                  <a name="codePairSanityTest2(candy1@gmail.com, Candyman, 9999999999, Ross:Phoebe:Joey:Rachel:Chandler)">
+                  </a> <!-- codePairSanityTest2(candy1@gmail.com, Candyman, 9999999999, Ross:Phoebe:Joey:Rachel:Chandler) -->
+                  <span class="method-name">codePairSanityTest2</span>
+                  <span class="parameters">(candy1@gmail.com, Candyman, 9999999999, Ross:Phoebe:Joey:Rachel:Chandler)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="codePairSanityTest3(candy1@gmail.com, Candyman, 9999999999, Ross:Phoebe:Joey:Rachel:Chandler)">
+                  </a> <!-- codePairSanityTest3(candy1@gmail.com, Candyman, 9999999999, Ross:Phoebe:Joey:Rachel:Chandler) -->
+                  <span class="method-name">codePairSanityTest3</span>
+                  <span class="parameters">(candy1@gmail.com, Candyman, 9999999999, Ross:Phoebe:Joey:Rachel:Chandler)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -146,28 +160,24 @@
         </div> <!-- panel Suite1 -->
         <div panel-name="test-xml-Suite1" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">D:\Eclipse Workspace\MyProjects\src\test\resources\testsuites\sampleSuite.xml</span>
+            <span class="header-content">/Users/adarshashetty/Documents/EclipseWorkspace/MyProjects/src/test/resources/testsuites/CodePairSanitySuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite1&quot; parallel=&quot;tests&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite1&quot;&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;net.project.listeners.AppListener&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test name=&quot;ChromeTest&quot;&gt;
-    &lt;parameter name=&quot;browser&quot; value=&quot;Chrome&quot;/&gt;
+  &lt;test name=&quot;SafariTest&quot;&gt;
+    &lt;parameter name=&quot;browser&quot; value=&quot;Firefox&quot;/&gt;
+    &lt;parameter name=&quot;browser2&quot; value=&quot;Firefox&quot;/&gt;
+    &lt;parameter name=&quot;browser1&quot; value=&quot;Firefox&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;net.project.testClasses.HackerrankTestCases.BasicTestCase&quot;/&gt;
+      &lt;class name=&quot;net.project.HackerRankForWork.TestClasses.SanityTestClass&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- ChromeTest --&gt;
-  &lt;test name=&quot;PhantomJSTest&quot;&gt;
-    &lt;parameter name=&quot;browser&quot; value=&quot;PhantomJS&quot;/&gt;
-    &lt;classes&gt;
-      &lt;class name=&quot;net.project.testClasses.HackerrankTestCases.BasicTestCase&quot;/&gt;
-    &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- PhantomJSTest --&gt;
+  &lt;/test&gt; &lt;!-- SafariTest --&gt;
 &lt;/suite&gt; &lt;!-- Suite1 --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -179,10 +189,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">ChromeTest (1 class)</span>
-              </li>
-              <li>
-                <span class="test-name">PhantomJSTest (1 class)</span>
+                <span class="test-name">SafariTest (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -208,20 +215,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'firstTask')
-data.setCell(0, 2, 'net.project.testClasses.HackerrankTestCases.BasicTestCase')
-data.setCell(0, 3, 1433440512187);
+data.setCell(0, 1, 'codePairSanityTest3')
+data.setCell(0, 2, 'net.project.HackerRankForWork.TestClasses.SanityTestClass')
+data.setCell(0, 3, 1436938612515);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'firstTask')
-data.setCell(1, 2, 'net.project.testClasses.HackerrankTestCases.BasicTestCase')
-data.setCell(1, 3, 1433440501294);
+data.setCell(1, 1, 'codePairSanityTest2')
+data.setCell(1, 2, 'net.project.HackerRankForWork.TestClasses.SanityTestClass')
+data.setCell(1, 3, 1436938539306);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'codePairSanityTest1')
+data.setCell(2, 2, 'net.project.HackerRankForWork.TestClasses.SanityTestClass')
+data.setCell(2, 3, 1436938471835);
 window.suiteTableData['Suite1']= { tableData: data, tableDiv: 'times-div-Suite1'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 796355 hours</span>
+              <span class="suite-total-time">Total running time: 1197448 hours</span>
               <div id="times-div-Suite1">
               </div> <!-- times-div-Suite1 -->
             </div> <!-- times-div -->
@@ -247,15 +258,35 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">net.project.testClasses.HackerrankTestCases.BasicTestCase</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">firstTask</span>
+              <div class="chronological-class-name">net.project.HackerRankForWork.TestClasses.SanityTestClass</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">checkForHackerrankForWorkLoginPage</span>
                 <span class="method-start">0 ms</span>
-              </div> <!-- test-method -->
+              </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">firstTask</span>
-                <span class="method-start">10 ms</span>
+                <span class="method-name">codePairSanityTest1</span>
+                <span class="method-start">24274 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">checkForHackerrankForWorkLoginPage</span>
+                <span class="method-start">87299 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">codePairSanityTest2(candy1@gmail.com, Candyman, 9999999999, Ross:Phoebe:Joey:Rachel:Chandler)</span>
+                <span class="method-start">100015 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">checkForHackerrankForWorkLoginPage</span>
+                <span class="method-start">154764 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">codePairSanityTest3(candy1@gmail.com, Candyman, 9999999999, Ross:Phoebe:Joey:Rachel:Chandler)</span>
+                <span class="method-start">167182 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDownInterviewTask</span>
+                <span class="method-start">227973 ms</span>
+              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

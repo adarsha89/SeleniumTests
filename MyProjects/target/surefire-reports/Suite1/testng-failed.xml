@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite verbose="0" name="Failed suite [Suite1]" parallel="tests">
-  <parameter name="browser" value="PhantomJS"/>
+<suite verbose="0" name="Failed suite [Suite1]">
+  <parameter name="browser" value="Chrome"/>
+  <parameter name="browser2" value="Chrome"/>
+  <parameter name="browser1" value="Chrome"/>
   <listeners>
     <listener class-name="net.project.listeners.AppListener"/>
   </listeners>
-  <test name="ChromeTest(failed)" parallel="tests">
+  <test name="SafariTest(failed)">
     <parameter name="browser" value="Chrome"/>
+    <parameter name="browser2" value="Chrome"/>
+    <parameter name="browser1" value="Chrome"/>
     <classes>
-      <class name="net.project.testClasses.HackerrankTestCases.BasicTestCase">
+      <class name="net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass">
         <methods>
-          <include name="secondTask"/>
+          <include name="setupInterviewTask"/>
+          <include name="testFromIntervieweeSide" invocation-numbers="0"/>
+          <include name="tearDownInterviewTask"/>
         </methods>
-      </class> <!-- net.project.testClasses.HackerrankTestCases.BasicTestCase -->
+      </class> <!-- net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass -->
     </classes>
-  </test> <!-- ChromeTest(failed) -->
-  <test name="PhantomJSTest(failed)" parallel="tests">
-    <parameter name="browser" value="PhantomJS"/>
-    <classes>
-      <class name="net.project.testClasses.HackerrankTestCases.BasicTestCase">
-        <methods>
-          <include name="secondTask"/>
-        </methods>
-      </class> <!-- net.project.testClasses.HackerrankTestCases.BasicTestCase -->
-    </classes>
-  </test> <!-- PhantomJSTest(failed) -->
+  </test> <!-- SafariTest(failed) -->
 </suite> <!-- Failed suite [Suite1] -->

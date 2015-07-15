@@ -1,35 +1,20 @@
-
-
-
-
 package net.project.testClasses;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.core.PrioritizedParameterNameDiscoverer;
-import org.springframework.web.accept.ParameterContentNegotiationStrategy;
-
 import net.project.listeners.AnnotationsListener;
-import net.project.listeners.AppListener;
 import net.project.loggers.AppLogger;
-import net.project.pageClasses.BasicLayoutPage;
 import net.project.pageClasses.ToolsQAHomePage;
 import net.project.webDriverUtils.WebDriverUtilFunctions;
 import net.project.webDriverUtils.SpyClass;
-
 import org.openqa.selenium.WebDriver;
-import org.testng.ITestNGMethod;
-import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 
 public class MySampleTestClass {
 	PrioritizedParameterNameDiscoverer prioritizedParameterNameDiscoverer= new PrioritizedParameterNameDiscoverer();
