@@ -436,7 +436,7 @@ public List<Long> threadRunTimes=new ArrayList<Long>();
 		if(errorMessage1.toString().trim().equals("errorMessageUnabletofind"))
 		{
 			errorMessage1.delete(0, errorMessage1.length()-1);
-			AppLogger.logInfo("This error is: "+ arg0.getCause().toString());
+			AppLogger.logError("This error is: "+ arg0.getCause().toString());
 			errorMessage1.append(arg0.getCause().toString().split(" ")[0].replaceAll("[-+.^:{,\"]",""));
 		}
 		try {

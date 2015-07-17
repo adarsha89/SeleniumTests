@@ -1,9 +1,12 @@
 package net.project.HackerRankForWork.PageClasses;
 
 import java.util.List;
+
 import net.project.loggers.AppLogger;
 import net.project.webDriverUtils.WebDriverUtilFunctions;
+
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -17,13 +20,13 @@ public class LiveInterviewPage extends LoadableComponent<LiveInterviewPage> impl
 	public WebDriver webDriver;
 	public WebDriverUtilFunctions webDriverUtilFunctions;
 	String urlPattern="https://codepair.hackerrank.com/paper/";
+	String availableLanguagesLength="$(\"div[class='select2-result-label']\").length";
+	String languageStringPart1="ul[class='select2-results']>li:nth-child(";
+	String languageStringPart2=")>div[class='select2-result-label']";
 	
 	@FindBy(how=How.CSS , using="span[class='select2-arrow']")
 	@CacheLookup
 	public WebElement languagesDropdown;
-	
-	@FindBy(how=How.CSS , using="div[class='select2-result-label']")
-	public List<WebElement> listOfAvailableLanguages;
 	
 	@FindBy(how=How.CSS , using="input[class='select2-input']")
 	public WebElement languageSearchBox;
@@ -96,16 +99,18 @@ public class LiveInterviewPage extends LoadableComponent<LiveInterviewPage> impl
 	public void selectLanguageUsingLanguageList(String language)
 	{
 		webDriverUtilFunctions.click(languagesDropdown);
-		waitForPageRender(webDriver, 1);
-		webDriverUtilFunctions.waitForWebElements(webDriver, "div[class='select2-result-label']", 5);
-		for(WebElement webE: listOfAvailableLanguages)
+		waitForPageRender(webDriver, 5);
+		Integer length=webDriverUtilFunctions.waitForWebElements(webDriver, "div[class='select2-result-label']", 5).size();
+		WebElement webE=null;
+		for(int i=1;i<=length;i++)
 		{
+			webE=webDriverUtilFunctions.getWebElementByCss(webDriver, languageStringPart1+i+languageStringPart2, 2);
 			if(webE.getText().equals(language))
 			{
 				webDriverUtilFunctions.click(webE);
+				break;
 			}
 		}
-		
 	}
 	public String checkSelectedLanguage()
 	{
@@ -165,7 +170,15 @@ public class LiveInterviewPage extends LoadableComponent<LiveInterviewPage> impl
 
 	public void discardMyCode() {
 		// TODO Auto-generated method stub
-		webDriverUtilFunctions.click(discardCodeButton);
+		
+			try{
+			webDriverUtilFunctions.click(discardCodeButton);
+			}
+			catch(NoSuchElementException ex)
+			{
+			
+			}
+		
 	}
 	public void enterInput(String inputString)
 	{

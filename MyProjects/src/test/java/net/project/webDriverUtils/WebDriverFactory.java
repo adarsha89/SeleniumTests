@@ -21,6 +21,9 @@ public class WebDriverFactory {
 		if(browser.toLowerCase().equals("safari"))
 		{
 			webDriver=new SafariWebDriver().getDefaultWebDriver();
+		}if(browser.toLowerCase().equals("phantomjs"))
+		{
+			webDriver=new PhantomJSWebDriver().getDefaultWebDriver();
 		}
 		
 		return webDriver;

@@ -69,6 +69,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+import com.sun.corba.se.impl.orbutil.threadpool.TimeoutException;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -1307,6 +1308,16 @@ if (webDriver instanceof JavascriptExecutor) {
 	
 	public void enterCodeInEditor(WebDriver webDriver, List<String> codeList)
 	{
+		if (webDriver instanceof JavascriptExecutor) {
+			try
+			{
+				((JavascriptExecutor) webDriver).executeScript("window.CodePair.editor.setValue()");
+			}catch(Exception e)
+			{
+				
+			}
+		}
+		
 		for(String lineOfCode:codeList)
 		{
 			if (webDriver instanceof JavascriptExecutor) {
@@ -1368,19 +1379,25 @@ if (webDriver instanceof JavascriptExecutor) {
 		    
 	}
 
-	public void runJavascript(String javaScript, WebDriver webDriver) {
+	public Long runJavascript(String javaScript, WebDriver webDriver) {
 		// TODO Auto-generated method stub
+		Long response=null;
 		if (webDriver instanceof JavascriptExecutor) {
 			try
 			{
-				((JavascriptExecutor) webDriver).executeScript(javaScript);
+				response=(Long)((JavascriptExecutor) webDriver).executeScript(javaScript);
+				System.out.println("Length is: "+((JavascriptExecutor) webDriver).executeScript(javaScript));
 				
 			}catch(UnreachableBrowserException ex)
 			{
-				
+				System.out.println("Exception encountered");
 			}
 		}
+		return response;
 	}
+	
+	
+	
 	}
 	
 

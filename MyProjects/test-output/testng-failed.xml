@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite1]">
-  <parameter name="browser" value="Firefox"/>
-  <parameter name="browser2" value="Firefox"/>
-  <parameter name="browser1" value="Firefox"/>
+  <parameter name="browser" value="Chrome"/>
+  <parameter name="browser2" value="Chrome"/>
+  <parameter name="browser1" value="Chrome"/>
   <listeners>
     <listener class-name="net.project.listeners.AppListener"/>
   </listeners>
   <test name="SafariTest(failed)">
-    <parameter name="browser" value="Firefox"/>
-    <parameter name="browser2" value="Firefox"/>
-    <parameter name="browser1" value="Firefox"/>
+    <parameter name="browser" value="Chrome"/>
+    <parameter name="browser2" value="Chrome"/>
+    <parameter name="browser1" value="Chrome"/>
     <classes>
-      <class name="net.project.HackerRankForWork.TestClasses.SanityTestClass">
+      <class name="net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass">
         <methods>
-          <include name="codePairSanityTest3" invocation-numbers="0"/>
+          <include name="setupInterviewTask"/>
+          <include name="testFromIntervieweeSide" invocation-numbers="0"/>
           <include name="tearDownInterviewTask"/>
-          <include name="checkForHackerrankForWorkLoginPage"/>
         </methods>
-      </class> <!-- net.project.HackerRankForWork.TestClasses.SanityTestClass -->
+      </class> <!-- net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass -->
     </classes>
   </test> <!-- SafariTest(failed) -->
 </suite> <!-- Failed suite [Suite1] -->

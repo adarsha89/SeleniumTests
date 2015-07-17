@@ -1,10 +1,14 @@
 package net.project.webDriverUtils;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class PhantomJSWebDriver implements BrowserSpecificWebDriverCapabilities {
 
@@ -12,13 +16,7 @@ public class PhantomJSWebDriver implements BrowserSpecificWebDriverCapabilities 
 	public WebDriver getDefaultWebDriver() {
 		
 		DesiredCapabilities desiredCapabilities= DesiredCapabilities.phantomjs();
-		desiredCapabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, System.getProperty("phantomjs.binary.path"));
-		desiredCapabilities.setCapability("phantomjs.binary.path", System.getProperty("phantomjs.binary.path"));
-		desiredCapabilities.setCapability("databaseEnabled", true);
-		desiredCapabilities.setCapability("locationContextEnabled", true);
-		desiredCapabilities.setCapability("applicationCacheEnabled", true);
-		desiredCapabilities.setCapability("browserConnectionEnabled", true);
-		desiredCapabilities.setCapability("webStorageEnabled", true);
+		desiredCapabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,"/usr/bin/phantomjs");
 		desiredCapabilities.setCapability("acceptSslCerts", true);
 		desiredCapabilities.setJavascriptEnabled(true);
 		desiredCapabilities.setCapability("nativeEvents", true);
@@ -27,9 +25,15 @@ public class PhantomJSWebDriver implements BrowserSpecificWebDriverCapabilities 
 		{
 			desiredCapabilities.setPlatform(Platform.MAC);
 		}
-		PhantomJSDriver phantomJSDriver=new PhantomJSDriver(desiredCapabilities);
-		phantomJSDriver.manage().window().maximize();
-		return phantomJSDriver;
+		WebDriver webDriver=null;
+		try {
+			webDriver = new RemoteWebDriver(new URL("http://localhost:5555/wd/hub"), desiredCapabilities);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		webDriver.manage().window().maximize();
+		return webDriver;
 	
 	}
 

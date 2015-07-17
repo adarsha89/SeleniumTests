@@ -81,7 +81,7 @@ public BasicTestClass(String browser, String browser1, String browser2) {
 		LiveInterviewPage liveInterviewPage=interviewLoginPage.startInterviewAsCandidate(intervieweeName);
 		liveInterviewPage.endTour();
 		liveInterviewPage.selectLanguageUsingLanguageList(programmingLanguage);
-		liveInterviewPage.discardMyCode();
+		//liveInterviewPage.discardMyCode();
 		//The entire page view should load completely
 		
 		
@@ -97,7 +97,7 @@ public BasicTestClass(String browser, String browser1, String browser2) {
 		liveInterviewPage.enterInput(stringBuilder.toString());
 		liveInterviewPage.runCode();
 		
-		liveInterviewPage.continueWithRunningCode();
+		//liveInterviewPage.continueWithRunningCode();
 		AppLogger.assertLogTrue(webDriverUtilFunctions.getWebElementByCss(intervieweeWebDriver, "span[class='success']", 10).isDisplayed(),"Compilation failed");
 	}
 	
@@ -151,8 +151,8 @@ public BasicTestClass(String browser, String browser1, String browser2) {
 	{
 		
 		
-		//webDriverUtilFunctions.closeAndQuitWebDriver(webDriver);
-		//webDriverUtilFunctions.closeAndQuitWebDriver(interviewerWebDriver);
+		webDriverUtilFunctions.closeAndQuitWebDriver(webDriver);
+		webDriverUtilFunctions.closeAndQuitWebDriver(interviewerWebDriver);
 		//webDriverUtilFunctions.closeAndQuitWebDriver(intervieweeWebDriver);
 	}
 

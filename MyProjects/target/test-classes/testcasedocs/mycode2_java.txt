@@ -4,5 +4,5 @@ class Sample{
 {
     Scanner scanner=new Scanner(System.in);
 	System.out.println("Hi "+scanner.next());
-}
+
 }
