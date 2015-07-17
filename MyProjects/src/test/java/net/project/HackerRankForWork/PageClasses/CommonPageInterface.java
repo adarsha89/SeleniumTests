@@ -36,5 +36,10 @@ default void setUrlOfPage(Object page, String url )
 	Object fieldObject=spyObject.getFieldObjectUsingFieldNameAndObject("url", page);
 	fieldObject=url;
 }
+default void waitForReInitialization(Object page, WebDriver webDriver )
+{
+	PageFactory.initElements(webDriver, page);
+	
+}
 }
 

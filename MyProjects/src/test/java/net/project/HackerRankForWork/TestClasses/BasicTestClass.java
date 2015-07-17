@@ -1,4 +1,4 @@
-package net.project.testClasses.HackerrankForWork.CodePair;
+package net.project.HackerRankForWork.TestClasses;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,6 +25,7 @@ import org.json.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -40,12 +41,12 @@ WebDriver webDriver;
 WebDriver interviewerWebDriver;
 WebDriver intervieweeWebDriver;
 WebDriverUtilFunctions webDriverUtilFunctions;
-@Parameters({"browser","browser1","browser2"})
-public BasicTestClass(String browser, String browser1, String browser2) {
+@Parameters({"browser","browser1","browser2","browserVersion","oS","oSVersion","resolution"})
+public BasicTestClass(String browser, String browser1, String browser2,@Optional String browserVersion,@Optional String oS,@Optional String oSVersion,@Optional String resolution) {
 	webDriverUtilFunctions=new WebDriverUtilFunctions();
-	this.webDriver=webDriverUtilFunctions.setupTest(browser);
-	this.interviewerWebDriver=webDriverUtilFunctions.setupTest(browser1);
-	this.intervieweeWebDriver=webDriverUtilFunctions.setupTest(browser2);
+	this.webDriver=webDriverUtilFunctions.setupTest(browser,null,null,null,null);
+	this.interviewerWebDriver=webDriverUtilFunctions.setupTest(browser1,null,null,null,null);
+	this.intervieweeWebDriver=webDriverUtilFunctions.setupTest(browser2,browserVersion,oS,oSVersion,resolution);
 }
 
 	@BeforeClass(alwaysRun=true)
@@ -81,13 +82,12 @@ public BasicTestClass(String browser, String browser1, String browser2) {
 		LiveInterviewPage liveInterviewPage=interviewLoginPage.startInterviewAsCandidate(intervieweeName);
 		liveInterviewPage.endTour();
 		liveInterviewPage.selectLanguageUsingLanguageList(programmingLanguage);
-		//liveInterviewPage.discardMyCode();
+		liveInterviewPage.discardMyCode();
 		//The entire page view should load completely
-		
-		
 		SampleTextFileDataAccessInterface sampleTextFileDataAccessInterface=new SampleTextFileDataAccessInterface();
 		List<String> codeList=sampleTextFileDataAccessInterface.getDataFromTextFile(codePath);
 		StringBuilder stringBuilder = new StringBuilder();
+		liveInterviewPage.disableBraceCompletion();
 		liveInterviewPage.enterCodeInEditor(codeList);
 		codeList=sampleTextFileDataAccessInterface.getDataFromTextFile(inputPath);
 		for (String s : codeList)
@@ -97,7 +97,7 @@ public BasicTestClass(String browser, String browser1, String browser2) {
 		liveInterviewPage.enterInput(stringBuilder.toString());
 		liveInterviewPage.runCode();
 		
-		//liveInterviewPage.continueWithRunningCode();
+		liveInterviewPage.continueWithRunningCode();
 		AppLogger.assertLogTrue(webDriverUtilFunctions.getWebElementByCss(intervieweeWebDriver, "span[class='success']", 10).isDisplayed(),"Compilation failed");
 	}
 	
@@ -153,7 +153,7 @@ public BasicTestClass(String browser, String browser1, String browser2) {
 		
 		webDriverUtilFunctions.closeAndQuitWebDriver(webDriver);
 		webDriverUtilFunctions.closeAndQuitWebDriver(interviewerWebDriver);
-		//webDriverUtilFunctions.closeAndQuitWebDriver(intervieweeWebDriver);
+		webDriverUtilFunctions.closeAndQuitWebDriver(intervieweeWebDriver);
 	}
 
 }

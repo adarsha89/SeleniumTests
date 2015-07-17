@@ -37,4 +37,10 @@ public class PhantomJSWebDriver implements BrowserSpecificWebDriverCapabilities 
 	
 	}
 
+	@Override
+	public WebDriver getRemoteWebDriver() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

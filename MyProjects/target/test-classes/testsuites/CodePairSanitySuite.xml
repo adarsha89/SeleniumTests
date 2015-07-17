@@ -5,9 +5,11 @@
  </listener>
 </listeners>
 <test name="SafariTest" preserve-order="true" parallel="false">
- <parameter name="browser" value="Firefox"/>
- <parameter name="browser1" value="Firefox"/>
- <parameter name="browser2" value="Firefox"/>
+ <parameter name="browser" value="PhantomJS"/>
+ <!-- <parameter name="browserVersion" value="39.0"/>
+ <parameter name="oS" value="OS X"/>
+ <parameter name="oSVersion" value="Yosemite"/>
+ <parameter name="resolution" value="1024x768"/> -->
  <classes> 
  <class name="net.project.HackerRankForWork.TestClasses.SanityTestClass"  >
  </class>

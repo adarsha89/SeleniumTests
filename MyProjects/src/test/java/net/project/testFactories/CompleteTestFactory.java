@@ -40,7 +40,7 @@ public class CompleteTestFactory {
 	@Factory     
 	public Object[] createnewInstances(String browser ) {  
 		webDriverUtilFunctions=new WebDriverUtilFunctions();
-		webDriver=webDriverUtilFunctions.setupTest(browser);
+		//webDriver=webDriverUtilFunctions.setupTest(browser);
 		ExcelInteraction eI=new ExcelInteraction();
 		LinkedHashMap<String, List<LinkedHashMap<String, String>>> data=null;
 		try {

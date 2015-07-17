@@ -5,6 +5,7 @@ import java.util.List;
 import net.project.loggers.AppLogger;
 import net.project.webDriverUtils.WebDriverUtilFunctions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
 public class LiveInterviewPage extends LoadableComponent<LiveInterviewPage> implements CommonPageInterface{
@@ -52,6 +54,24 @@ public class LiveInterviewPage extends LoadableComponent<LiveInterviewPage> impl
 	
 	@FindBy(how=How.CSS , using="pre[class*='cp_codeText']")
 	public WebElement outputTextArea;
+	
+	@FindBy(how=How.CSS , using="div[class='pdL pdR']>label:nth-child(3)>input")
+	public WebElement autoCompletionCheckbox;
+	
+	public String verifyAutoCompletionCheckboxString="return $(\"div[class='pdL pdR']>label:nth-child(5)>input\").is(':checked')";
+	
+	@FindBy(how=How.CSS , using="div[class='pdL pdR']>label:nth-child(4)>input")
+	public WebElement braceCompletionCheckbox;
+	
+	public String verifyBraceCompletionTickString="return $(\"div[class='pdL pdR']>label:nth-child(4)>input\").is(':checked')";
+	
+	@FindBy(how=How.CSS , using="div[class='pdL pdR']>label:nth-child(5)>input")
+	public WebElement desktopNotificationCheckbox;
+	
+	public String verifyDesktopNotificationTickString="return $(\"div[class='pdL pdR']>label:nth-child(5)>input\").is(':checked')";
+	
+	@FindBy(how=How.CSS , using="a[class='cp_settings js-global-settings']")
+	public WebElement globalSettingsButton;
 	
 	
 	@FindBy(how=How.CSS , using="div[class='willrun']")
@@ -114,6 +134,7 @@ public class LiveInterviewPage extends LoadableComponent<LiveInterviewPage> impl
 	}
 	public String checkSelectedLanguage()
 	{
+		
 		return languageSelected.getText();
 	}
 	public void selectLanguageUsingSearchBox(String language)
@@ -171,13 +192,12 @@ public class LiveInterviewPage extends LoadableComponent<LiveInterviewPage> impl
 	public void discardMyCode() {
 		// TODO Auto-generated method stub
 		
-			try{
+		if(webDriverUtilFunctions.checkWhetherDisplayed(discardCodeButton,5))
+		{
 			webDriverUtilFunctions.click(discardCodeButton);
-			}
-			catch(NoSuchElementException ex)
-			{
+		}
 			
-			}
+			
 		
 	}
 	public void enterInput(String inputString)
@@ -189,7 +209,51 @@ public class LiveInterviewPage extends LoadableComponent<LiveInterviewPage> impl
 
 	public void continueWithRunningCode() {
 		// TODO Auto-generated method stub
-		webDriverUtilFunctions.click(continueRunningCodeButton);
+		if(webDriverUtilFunctions.checkWhetherDisplayed(continueRunningCodeButton, 5))
+		{
+			webDriverUtilFunctions.click(continueRunningCodeButton);
+		}
+		
+	}
+
+	public void disableBraceCompletion() {
+		// TODO Auto-generated method stub
+		webDriverUtilFunctions.click(globalSettingsButton);
+		waitForPageRender(webDriver, 1);
+		
+		if ((Boolean)webDriverUtilFunctions.runJavascript(verifyBraceCompletionTickString, webDriver))
+		{
+			webDriverUtilFunctions.click(braceCompletionCheckbox);
+		}
+	}
+	public void enableBraceCompletion() {
+		// TODO Auto-generated method stub
+		webDriverUtilFunctions.click(globalSettingsButton);
+		waitForPageRender(webDriver, 1);
+		
+		if (! (Boolean)webDriverUtilFunctions.runJavascript(verifyBraceCompletionTickString, webDriver))
+		{
+			webDriverUtilFunctions.click(braceCompletionCheckbox);
+		}
+	}
+	public void disableAutoCompletion() {
+		// TODO Auto-generated method stub
+		webDriverUtilFunctions.click(globalSettingsButton);
+		waitForPageRender(webDriver, 1);
+		
+		if ((Boolean)webDriverUtilFunctions.runJavascript(verifyAutoCompletionCheckboxString, webDriver))
+		{
+			webDriverUtilFunctions.click(autoCompletionCheckbox);
+		}
+	}
+	public void enableAutoCompletion() {
+		// TODO Auto-generated method stub
+		webDriverUtilFunctions.click(globalSettingsButton);
+		waitForPageRender(webDriver, 1);
+		if (! (Boolean)webDriverUtilFunctions.runJavascript(verifyAutoCompletionCheckboxString, webDriver))
+		{
+			webDriverUtilFunctions.click(autoCompletionCheckbox);
+		}
 	}
 	
 }

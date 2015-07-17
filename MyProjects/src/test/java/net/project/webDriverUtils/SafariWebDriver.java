@@ -29,4 +29,10 @@ public class SafariWebDriver implements BrowserSpecificWebDriverCapabilities {
 		return safariWebDriver;
 	}
 
+	@Override
+	public WebDriver getRemoteWebDriver() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

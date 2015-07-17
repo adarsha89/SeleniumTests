@@ -28,4 +28,10 @@ public class FirefoxWebDriver implements BrowserSpecificWebDriverCapabilities {
 		return firefoxWebDriver;
 	}
 
+	@Override
+	public WebDriver getRemoteWebDriver() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

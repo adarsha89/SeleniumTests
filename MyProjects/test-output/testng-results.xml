@@ -1,85 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite1" duration-ms="232150" started-at="2015-07-17T06:09:12Z" finished-at="2015-07-17T06:13:04Z">
+  <suite name="Suite1" duration-ms="138187" started-at="2015-07-17T12:46:45Z" finished-at="2015-07-17T12:49:04Z">
     <groups>
     </groups>
-    <test name="SafariTest" duration-ms="232150" started-at="2015-07-17T06:09:12Z" finished-at="2015-07-17T06:13:04Z">
-      <class name="net.project.HackerRankForWork.TestClasses.SanityTestClass">
-        <test-method status="PASS" signature="checkForHackerrankForWorkLoginPage()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@dd0c991]" name="checkForHackerrankForWorkLoginPage" is-config="true" duration-ms="19188" started-at="2015-07-17T11:39:12Z" finished-at="2015-07-17T11:39:31Z">
+    <test name="SafariTest" duration-ms="138187" started-at="2015-07-17T12:46:45Z" finished-at="2015-07-17T12:49:04Z">
+      <class name="net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass">
+        <test-method status="PASS" signature="setupInterviewTask()[pri:0, instance:net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass@6da21078]" name="setupInterviewTask" is-config="true" duration-ms="64950" started-at="2015-07-17T18:16:45Z" finished-at="2015-07-17T18:17:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- checkForHackerrankForWorkLoginPage -->
-        <test-method status="PASS" signature="codePairSanityTest1()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@dd0c991]" name="codePairSanityTest1" duration-ms="1437113430020" started-at="2015-07-17T11:39:31Z" finished-at="2061-01-29T17:50:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- codePairSanityTest1 -->
-        <test-method status="PASS" signature="checkForHackerrankForWorkLoginPage()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@dd0c991]" name="checkForHackerrankForWorkLoginPage" is-config="true" duration-ms="21779" started-at="2015-07-17T11:40:30Z" finished-at="2015-07-17T11:40:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkForHackerrankForWorkLoginPage -->
-        <test-method status="PASS" signature="codePairSanityTest2(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@dd0c991]" name="codePairSanityTest2" duration-ms="1437113501185" started-at="2015-07-17T11:40:51Z" data-provider="candidateAndInterviewerInfoProviderMethod" finished-at="2061-01-29T17:52:32Z">
+        </test-method> <!-- setupInterviewTask -->
+        <test-method status="PASS" signature="testFromInterviewerSide(java.lang.String, java.lang.String)[pri:0, instance:net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass@6da21078]" name="testFromInterviewerSide" duration-ms="1437137291728" started-at="2015-07-17T18:17:50Z" data-provider="interviewerCredentialsDataProviderMethod" finished-at="2061-01-30T07:06:02Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[candy1@gmail.com]]>
+                <![CDATA[adarsha+dev@hackerrank.com]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Candyman]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[9999999999]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Ross:Phoebe:Joey:Rachel:Chandler]]>
+                <![CDATA[ADAshe89]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- codePairSanityTest2 -->
-        <test-method status="PASS" signature="checkForHackerrankForWorkLoginPage()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@dd0c991]" name="checkForHackerrankForWorkLoginPage" is-config="true" duration-ms="17320" started-at="2015-07-17T11:41:41Z" finished-at="2015-07-17T11:41:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkForHackerrankForWorkLoginPage -->
-        <test-method status="PASS" signature="codePairSanityTest3(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@dd0c991]" name="codePairSanityTest3" duration-ms="1437113584481" started-at="2015-07-17T11:41:58Z" data-provider="candidateAndInterviewerInfoProviderMethod" finished-at="2061-01-29T17:55:02Z">
+        </test-method> <!-- testFromInterviewerSide -->
+        <test-method status="PASS" signature="testFromIntervieweeSide(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass@6da21078]" name="testFromIntervieweeSide" duration-ms="1437137341176" started-at="2015-07-17T18:18:11Z" data-provider="intervieweeDataProviderMethod" finished-at="2061-01-30T07:07:12Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[candy1@gmail.com]]>
+                <![CDATA[testintervieweeman]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Candyman]]>
+                <![CDATA[C++]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[9999999999]]>
+                <![CDATA[src/test/resources/testcasedocs/mycode.txt]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[Ross:Phoebe:Joey:Rachel:Chandler]]>
+                <![CDATA[src/test/resources/testcasedocs/codeInput.txt]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- codePairSanityTest3 -->
-        <test-method status="PASS" signature="tearDownInterviewTask()[pri:0, instance:net.project.HackerRankForWork.TestClasses.SanityTestClass@dd0c991]" name="tearDownInterviewTask" is-config="true" duration-ms="32" started-at="2015-07-17T11:43:04Z" finished-at="2015-07-17T11:43:04Z">
+        </test-method> <!-- testFromIntervieweeSide -->
+        <test-method status="PASS" signature="tearDownInterviewTask()[pri:0, instance:net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass@6da21078]" name="tearDownInterviewTask" is-config="true" duration-ms="2856" started-at="2015-07-17T18:19:01Z" finished-at="2015-07-17T18:19:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownInterviewTask -->
-      </class> <!-- net.project.HackerRankForWork.TestClasses.SanityTestClass -->
+      </class> <!-- net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass -->
     </test> <!-- SafariTest -->
   </suite> <!-- Suite1 -->
 </testng-results>

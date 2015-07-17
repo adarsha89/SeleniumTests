@@ -30,4 +30,11 @@ public class ChromeWebDriver implements BrowserSpecificWebDriverCapabilities{
 		return chromeWebDriver;
 	}
 
+
+	@Override
+	public WebDriver getRemoteWebDriver() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

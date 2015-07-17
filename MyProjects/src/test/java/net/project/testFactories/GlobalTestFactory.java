@@ -47,7 +47,7 @@ public class GlobalTestFactory {
 	@Factory
 	public Object[] createnewInstances(String browser, String testCaseDocument , String testCaseSheet , String testName ) {  
 		webDriverUtilFunctions=new WebDriverUtilFunctions();
-		webDriver=webDriverUtilFunctions.setupTest(browser);
+		//webDriver=webDriverUtilFunctions.setupTest(browser);
 		ExcelInteraction eI=new ExcelInteraction();
 		Map<String, List<LinkedHashMap<String, String>>> data=null;
 		try {

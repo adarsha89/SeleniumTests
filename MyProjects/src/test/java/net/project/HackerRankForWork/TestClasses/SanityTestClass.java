@@ -17,6 +17,7 @@ import net.project.webDriverUtils.WebDriverUtilFunctions;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -28,13 +29,11 @@ public class SanityTestClass {
 	WebDriver interviewerWebDriver;
 	WebDriver intervieweeWebDriver;
 	WebDriverUtilFunctions webDriverUtilFunctions;
-	@Parameters({"browser","browser1","browser2"})
-	public SanityTestClass(String browser, String browser1, String browser2) {
+	@Parameters({"browser","browserVersion","oS","oSVersion","resolution"})
+	public SanityTestClass(String browser,@Optional String browserVersion,@Optional String oS,@Optional String oSVersion,@Optional String resolution) {
 		// TODO Auto-generated constructor stub
 		webDriverUtilFunctions=new WebDriverUtilFunctions();
-		this.webDriver=webDriverUtilFunctions.setupTest(browser);
-		this.interviewerWebDriver=webDriverUtilFunctions.setupTest(browser1);
-		this.intervieweeWebDriver=webDriverUtilFunctions.setupTest(browser2);
+		this.webDriver=webDriverUtilFunctions.setupTest(browser,browserVersion,oS,oSVersion,resolution);
 		
 	}
 	@BeforeMethod(alwaysRun=true)
@@ -122,8 +121,6 @@ public class SanityTestClass {
 		
 		
 		webDriverUtilFunctions.closeAndQuitWebDriver(webDriver);
-		webDriverUtilFunctions.closeAndQuitWebDriver(interviewerWebDriver);
-		webDriverUtilFunctions.closeAndQuitWebDriver(intervieweeWebDriver);
 	}
 
 }

@@ -10,42 +10,28 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-
 import net.project.listeners.AppListener;
 import net.project.loggers.AppLogger;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.logging.LogType;
-import org.openqa.selenium.logging.LoggingPreferences;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriverService;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.ScreenshotException;
 import org.openqa.selenium.remote.UnreachableBrowserException;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -53,9 +39,8 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.annotation.Configuration;
-
+import org.testng.annotations.Optional;
 import com.google.common.base.Function;
-import com.google.sitebricks.client.Web;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -69,15 +54,12 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
-import com.sun.corba.se.impl.orbutil.threadpool.TimeoutException;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-
 import javax.activation.*;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -99,11 +81,13 @@ public class WebDriverUtilFunctions {
 	/** The scr file. */
 	File scrFile=null;
 	/** The base url. */
-	//String baseURL="http://www.store.demoqa.com";
-	public static final String USERNAME = "hackerrank";
-	  public static final String AUTOMATE_KEY = "nt6JzvpM3fqCo3c5cRMA";
-	  public static final String nodeURL = "http://" + USERNAME + ":" + AUTOMATE_KEY + "@hub.browserstack.com/wd/hub";
 	
+	//String baseURL="http://www.store.demoqa.com";
+	
+	public   String USERNAME = "hackerrank";
+	public  final String AUTOMATE_KEY = "nt6JzvpM3fqCo3c5cRMA";
+	public  final String URL = "http://" + USERNAME + ":" + AUTOMATE_KEY + "@hub.browserstack.com/wd/hub";
+
 	/** The html unit driver. */
 	  WebDriver ieWebDriver, chromeWebDriver , firefoxWebDriver, phantomJSDriver,safariWebDriver;
 	
@@ -116,16 +100,18 @@ public class WebDriverUtilFunctions {
 	 * @param browser the browser
 	 * @return the web driver
 	 */
-	public EventFiringWebDriver setupTest(String browser)
+	
+	public EventFiringWebDriver setupTest(String browser,@Optional String browserVersion,@Optional String oS,@Optional String oSVersion,@Optional String resolution)
 	{
 		WebDriver webDriver=null;
 		webDriverFactory=new WebDriverFactory();
-		webDriver=webDriverFactory.getWebDriver(browser);
+		webDriver=webDriverFactory.getWebDriver(browser,browserVersion,oS,oSVersion,resolution);
 		eventFiringWebDriver=new EventFiringWebDriver(webDriver);
 		eventFiringWebDriver.register(projectListener);
 		webDriver.manage().window().maximize();
 		return eventFiringWebDriver;
 	}
+	
 	
 	/**
 	 * Setup remote test.
@@ -133,216 +119,12 @@ public class WebDriverUtilFunctions {
 	 * @param browser the browser
 	 * @return the web driver
 	 */
-	
-	public WebDriver setupRemoteTest(String browser)
-	{
-		WebDriver remotewebDriver=null;
-		switch(browser)
-		{
-		case "Chrome":
-			remotewebDriver= chromeRemoteWebDriver;
-			break;
-		case "IE":
-			remotewebDriver= ieRemoteWebDriver;
-			break;
-		case "Firefox":
-			remotewebDriver= firefoxRemoteWebDriver;
-			break;
-		case "PhantomJS":
-			remotewebDriver=phantomJSRemoteWebDriver;
-			break;
-		}		
-		System.out.println("Switch statement for remote");
-		eventFiringWebDriver=new EventFiringWebDriver(remotewebDriver);
-		eventFiringWebDriver.register(projectListener);
-		remotewebDriver.manage().window().maximize();
-		return remotewebDriver;
-	}
-	  
 	static {
-		//System.setProperty("webdriver.ie.driver", "src/test/resources/driverexefiles/IEDriverServer");
-		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-		System.setProperty("phantomjs.binary.path", "/usr/bin/phantomjs");
-		//System.setProperty("webdriver.firefox.port", "8082");
-		//ApplicationContext applicationContext=new ClassPathXmlApplicationContext("employee-servlet.xml");
+		//System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+		//System.setProperty("phantomjs.binary.path", "/usr/bin/phantomjs");
 		AppLogger.logInfo("Logger has been configured successfully");
 		}
-	
-	
-	/*public  WebDriver ieWebDriver()
-	{	
-		DesiredCapabilities capability = DesiredCapabilities.internetExplorer();
-		capability.setCapability("databaseEnabled", true);
-		capability.setCapability("locationContextEnabled", true);
-		capability.setCapability("applicationCacheEnabled", true);
-		capability.setCapability("browserConnectionEnabled", true);
-		capability.setCapability("webStorageEnabled", true);
-		capability.setCapability("acceptSslCerts", true);
-		capability.setJavascriptEnabled(true);
-		capability.setCapability("nativeEvents", true);
-		capability.setPlatform(Platform.MAC);
-		InternetExplorerDriver internetExplorerDriver=new InternetExplorerDriver(capability);
-		internetExplorerDriver.manage().window().maximize();
-		return internetExplorerDriver;	
-	}
-	
-	public   WebDriver firefoxWebDriver()
-	{
-		DesiredCapabilities capability = DesiredCapabilities.firefox();
-		capability.setCapability("databaseEnabled", true);
-		capability.setCapability("locationContextEnabled", true);
-		capability.setCapability("applicationCacheEnabled", true);
-		capability.setCapability("browserConnectionEnabled", true);
-		capability.setCapability("webStorageEnabled", true);
-		capability.setCapability("acceptSslCerts", true);
-		capability.setJavascriptEnabled(true);
-		capability.setCapability("nativeEvents", true);
-		capability.setPlatform(Platform.MAC);
-		firefoxWebDriver = new FirefoxDriver(capability);
-		firefoxWebDriver.manage().window().maximize();
-		return firefoxWebDriver;
-	}
-	
-	public   WebDriver safariWebDriver()
-	{
-		DesiredCapabilities capability = DesiredCapabilities.safari();
-		capability.setCapability("databaseEnabled", true);
-		capability.setCapability("locationContextEnabled", true);
-		capability.setCapability("applicationCacheEnabled", true);
-		capability.setCapability("browserConnectionEnabled", true);
-		capability.setCapability("webStorageEnabled", true);
-		capability.setCapability("acceptSslCerts", true);
-		capability.setJavascriptEnabled(true);
-		capability.setCapability("nativeEvents", true);
-		capability.setPlatform(Platform.MAC);
-		safariWebDriver = new SafariDriver();
-		safariWebDriver.manage().window().maximize();
-		return safariWebDriver;
-	}
-	public   WebDriver chromeWebDriver()
-	{	
-		
-		DesiredCapabilities capability = DesiredCapabilities.chrome();
-		capability.setCapability("databaseEnabled", true);
-		capability.setCapability("locationContextEnabled", true);
-		capability.setCapability("applicationCacheEnabled", true);
-		capability.setCapability("browserConnectionEnabled", true);
-		capability.setCapability("webStorageEnabled", true);
-		capability.setCapability("acceptSslCerts", true);
-		capability.setJavascriptEnabled(true);
-		//capability.setCapability("nativeEvents", true);
-		//LoggingPreferences prefs = new LoggingPreferences();
-        prefs.enable(LogType.BROWSER, Level.ALL);
-        //prefs.enable(LogType.DRIVER, Level.ALL);
-        prefs.enable(LogType.CLIENT, Level.ALL);
-        //capability.setCapability(CapabilityType.LOGGING_PREFS, prefs);		
-		chromeWebDriver = new ChromeDriver(capability);	
-		chromeWebDriver.manage().window().maximize();
-		return chromeWebDriver;		
-	}
-	
-	public  WebDriver phantomJSDriver()
-	{
-		
-		DesiredCapabilities desiredCapabilities= DesiredCapabilities.phantomjs();
-		desiredCapabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, System.getProperty("phantomjs.binary.path"));
-		desiredCapabilities.setCapability("phantomjs.binary.path", System.getProperty("phantomjs.binary.path"));
-		desiredCapabilities.setCapability("databaseEnabled", true);
-		desiredCapabilities.setCapability("locationContextEnabled", true);
-		desiredCapabilities.setCapability("applicationCacheEnabled", true);
-		desiredCapabilities.setCapability("browserConnectionEnabled", true);
-		desiredCapabilities.setCapability("webStorageEnabled", true);
-		desiredCapabilities.setCapability("acceptSslCerts", true);
-		desiredCapabilities.setJavascriptEnabled(true);
-		desiredCapabilities.setCapability("nativeEvents", true);
-		desiredCapabilities.setPlatform(Platform.WINDOWS);
-		phantomJSDriver=new PhantomJSDriver(desiredCapabilities);
-		phantomJSDriver.manage().window().maximize();
-		return phantomJSDriver;
-	}*/
-	
-	public  WebDriver phantomJSRemoteWebDriver()
-	{
-		DesiredCapabilities capability=DesiredCapabilities.phantomjs();		
-		RemoteWebDriver driver=null;
-		
-		try {
-			driver = new RemoteWebDriver(new URL(nodeURL),capability);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-		phantomJSRemoteWebDriver=driver;
-		return driver;	
-	}
-	
-	public  WebDriver chromeRemoteWebDriver()
-	{
-		System.out.println("Creating chromeremotedriver");
-		
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("browser", "IE");
-		capabilities.setCapability("browser_version", "7.0");
-		capabilities.setCapability("os", "Windows");
-		capabilities.setCapability("os_version", "XP");
-		capabilities.setCapability("browserstack.debug", "true");
-		
-		
-		/*DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("browser", "Chrome");
-		capabilities.setCapability("browser_version", "43");
-		capabilities.setCapability("os", "OS X");
-		capabilities.setCapability("os_version", "Yosemite");
-		capabilities.setCapability("browserstack.local", "true");
-		capabilities.setCapability("browserstack.debug", "true");
-		capabilities.setCapability("browserstack.selenium_version", "2.45");
-		*/
-		/*capabilities.setVersion("43");
-		capabilities.setPlatform(Platform.MAC);*/
-		RemoteWebDriver driver=null;
-		try {
-			driver = new RemoteWebDriver(new URL(nodeURL),capabilities);
-			System.out.println("RemoteChromeWebdriver has been initialized");
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Malformed url exception");
-		}		
-		chromeRemoteWebDriver=driver;
-		return driver;		
-	}
-	
-	public  RemoteWebDriver ieRemoteWebDriver()
-	{
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("browser", "IE");
-		capabilities.setCapability("browser_version", "7.0");
-		capabilities.setCapability("os", "Windows");
-		capabilities.setCapability("os_version", "XP");
-		capabilities.setCapability("browserstack.debug", "true");
-		RemoteWebDriver driver=null;
-		try {
-			driver = new RemoteWebDriver(new URL(nodeURL),capabilities);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-		ieRemoteWebDriver=driver;
-		return driver;	
-	}
-	
-	public  RemoteWebDriver firefoxRemoteWebDriver()
-	{		
-		DesiredCapabilities capability=DesiredCapabilities.firefox();
-		RemoteWebDriver driver=null;
-		try {
-			driver = new RemoteWebDriver(new URL(nodeURL),capability);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
-		firefoxRemoteWebDriver=driver;
-		return driver;			
-	}
+
 		
 	/**
 	 * Gets the attribute of element.
@@ -358,29 +140,12 @@ public class WebDriverUtilFunctions {
 	}
 	public String getAttributeOfElement(WebElement webElement, String attributeName)
 	{
-
-		FluentWait<WebElement> wait = new FluentWait<WebElement>(webElement);
-		wait.pollingEvery(100,  TimeUnit.MILLISECONDS);
-		wait.withTimeout(5, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class);
-		
-		Function<WebElement, String> function = new Function<WebElement, String>()
-				{
-				String attribute=null;
-					public String apply(WebElement webElement) {
-						
-						if(webElement!=null)
-						{
-							
-								attribute=webElement.getAttribute(attributeName);
-							
-						}
-								return attribute;
-						
-					}
-				};
- 
-				
-		return wait.until(function);
+		String attribute=null;
+		if(checkWhetherDisplayed(webElement, 5))
+		{
+			attribute=webElement.getAttribute(attributeName);
+		}		
+		return attribute;
 	}
 	
 	/**
@@ -423,12 +188,6 @@ public class WebDriverUtilFunctions {
 				};
  
 		return wait.until(function);	
-	
-	
-	
-	
-		
-		
 	}
 	
 	
@@ -494,8 +253,6 @@ public class WebDriverUtilFunctions {
 				};
  
 		return wait.until(function);	
-	
-	
 	}
 	
 	
@@ -526,7 +283,6 @@ public class WebDriverUtilFunctions {
 				};
  
 		return wait.until(function);	
-	
 	}
 	
 	public  WebElement getElementByTagName(WebDriver webDriver, int seconds, String tagName)
@@ -545,7 +301,6 @@ public class WebDriverUtilFunctions {
 						return webElement;
 					}
 				};
- 
 		return wait.until(function);	
 	}
 	
@@ -557,25 +312,10 @@ public class WebDriverUtilFunctions {
 	 */
 	public void click(WebElement webElement)
 	{
-		FluentWait<WebElement> wait = new FluentWait<WebElement>(webElement);
-		wait.pollingEvery(50,  TimeUnit.MILLISECONDS);
-		wait.withTimeout(20, TimeUnit.SECONDS).ignoring(NoSuchElementException.class,StaleElementReferenceException.class);
-		
-		Function<WebElement, Boolean> function = new Function<WebElement, Boolean>()
-				{
-					Boolean status=false;
-					public Boolean apply(WebElement webElement) {
-						if(webElement!=null && webElement.isDisplayed() && webElement.isEnabled())
-						{
-								webElement.click();
-								status=true;						
-						}						
-						
-						return status;
-					}
-				};
- 
-		wait.until(function);				
+		if(checkWhetherDisplayed(webElement, 5))			
+		{
+			webElement.click();
+		}
 	}
 	
 	/**
@@ -586,25 +326,10 @@ public class WebDriverUtilFunctions {
 	 */
 	public  void typeKeys(WebElement webElement , String keys)
 	{
-		FluentWait<WebElement> wait = new FluentWait<WebElement>(webElement);
-		wait.pollingEvery(100,  TimeUnit.MILLISECONDS);
-		wait.withTimeout(2, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class,NoSuchElementException.class);
-		
-		Function<WebElement, Boolean> function = new Function<WebElement, Boolean>()
-				{
-			Boolean status=false;
-					public Boolean apply(WebElement webElement) {
-						if(webElement!=null && webElement.isDisplayed() && webElement.isEnabled())
-						{
-								webElement.sendKeys(keys);
-								status=true;						
-						}						
-						
-						return status;
-					}
-				};
- 
-			wait.until(function);				
+		if(checkWhetherDisplayed(webElement, 5))
+		{
+			webElement.sendKeys(keys);
+		}								
 	}
 	
 	/**
@@ -615,29 +340,21 @@ public class WebDriverUtilFunctions {
 	 */
 	public  String getCurrentUrl(WebDriver webDriver)
 	{
-
 		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(webDriver);
 		wait.pollingEvery(100,  TimeUnit.MILLISECONDS);
 		wait.withTimeout(3, TimeUnit.SECONDS).ignoring(Exception.class,UnreachableBrowserException.class);
-		
 		Function<WebDriver, String> function = new Function<WebDriver, String>()
 				{
 					public String apply(WebDriver webDriver) {
-						String currentUrl =null;
-						
-						currentUrl= webDriver.getCurrentUrl();
-						
+						String currentUrl =null;					
+						currentUrl= webDriver.getCurrentUrl();					
 							if(currentUrl!=null)
 							{
 								return currentUrl;
-							}
-						
-						
-						
-						return null;
+							}					
+					return null;
 					}
 				};
- 
 		return wait.until(function);	
 	}
 	
@@ -666,44 +383,15 @@ public class WebDriverUtilFunctions {
 					{
 						
 					}
-				if(completionStatus.equals("complete"))
-				{
-					break;
+					if(completionStatus.equals("complete"))
+					{
+						break;
+					}
 				}
-				}
-			}
-			
-		
+			}		
 	}
 	
-	public  void addTexttoAnElement(WebDriver webDriver, int maxNumberOfSeconds)
-	{
-
-		Long startTimeInmilliseconds=System.currentTimeMillis();
-		
-		Integer numberOfseconds=new Integer(maxNumberOfSeconds*1000);
-		String completionStatus="";
-			
-			while((System.currentTimeMillis()-startTimeInmilliseconds)<numberOfseconds)
-			{
-				if (webDriver instanceof JavascriptExecutor) {
-					try
-					{
-						completionStatus=(String)((JavascriptExecutor) webDriver).executeScript("return document.readyState");
-						
-					}catch(UnreachableBrowserException ex)
-					{
-						
-					}
-				if(completionStatus.equals("complete"))
-				{
-					break;
-				}
-				}
-			}
-			
-		
-	}
+	
 	
 	
 	public void moveToAndClickOnElementAndTypeKeys(WebDriver webDriver, String cssPath, String text)
@@ -720,21 +408,14 @@ public class WebDriverUtilFunctions {
 		actions.moveToElement(webDriverUtilFunctions.getWebElementByCss(webDriver, cssPath, 20)).clickAndHold().release().click().build().perform();
 	}
 	
-	
-	
-	
-	
 	public  void waitForAjaxQueryCompletion(WebDriver webDriver, int maxNumberOfSeconds)
 	{
-
-		Long startTimeInmilliseconds=System.currentTimeMillis();
-		
+		Long startTimeInmilliseconds=System.currentTimeMillis();	
 		Integer numberOfseconds=new Integer(maxNumberOfSeconds*1000);
-		Boolean completionStatus=false;
-			
-			while((System.currentTimeMillis()-startTimeInmilliseconds)<numberOfseconds)
-				
-			{if (webDriver instanceof JavascriptExecutor) {
+		Boolean completionStatus=false;		
+		while((System.currentTimeMillis()-startTimeInmilliseconds)<numberOfseconds)		
+		{
+			if (webDriver instanceof JavascriptExecutor) {
 				try
 				{
 					 completionStatus=(Boolean)((JavascriptExecutor) webDriver).executeScript("return jQuery.active == 0");
@@ -748,9 +429,8 @@ public class WebDriverUtilFunctions {
 					break;
 				}
 			}
-			}
+		}
 			
-		
 	}
 	
 	/**
@@ -787,8 +467,7 @@ public class WebDriverUtilFunctions {
 	public  String getFromDropDown(WebElement webElement)
 	{		
 		Select dropdown = new Select(webElement);
-		return dropdown.getFirstSelectedOption().getText();
-		
+		return dropdown.getFirstSelectedOption().getText();	
 	}
 	
 	/**
@@ -812,7 +491,6 @@ public class WebDriverUtilFunctions {
 						return true;
 					}
 				};
- 
 		 wait.until(function);
 		}
 	
@@ -961,23 +639,12 @@ public class WebDriverUtilFunctions {
 	
 	public String getTextContent(WebElement webElement)
 	{
-
-		FluentWait<WebElement> wait = new FluentWait<WebElement>(webElement);
-		wait.pollingEvery(100,  TimeUnit.MILLISECONDS);
-		wait.withTimeout(3, TimeUnit.SECONDS).ignoring(Exception.class,UnreachableBrowserException.class);		
-		Function<WebElement, String> function = new Function<WebElement, String>()
-				{
-					String text =null;
-					public String apply(WebElement webElement) {
-						
-						
+		String text=null;
+		if(checkWhetherDisplayed(webElement, 5))
+		{
 						text= webElement.getText();
-						return text;
-					}
-				};
- 
-		return wait.until(function);	
-	
+		}				
+		return text;	
 	}
 	
 	/**
@@ -997,7 +664,8 @@ public class WebDriverUtilFunctions {
 				{
 			Boolean status=false;
 					public Boolean apply(WebDriver webDriver) {
-								File scrFile =null;							
+								File scrFile =null;		
+								webDriver=new Augmenter().augment(webDriver);
 								scrFile = ((TakesScreenshot)webDriver).getScreenshotAs(OutputType.FILE);
 								//AppLogger.logInfo("Dest path is: target\\generated-test-sources\\screenshots\\"+testContextName+"\\"+testCaseName+"\\"+failureName+ ".jpeg");
 								File file1=new File("target\\generated-test-sources\\screenshots\\"+testContextName+"\\"+testCaseName+"\\"+failureName+ ".jpeg");								
@@ -1373,20 +1041,17 @@ if (webDriver instanceof JavascriptExecutor) {
 			e.printStackTrace();
 	 
 		  }
-		  return outputComplete.toString();
-		  //output=outputComplete.toString().split(":")[2].split(",")[0];
-		  //System.out.println(output);
-		    
+		  return outputComplete.toString();	    
 	}
 
-	public Long runJavascript(String javaScript, WebDriver webDriver) {
+	public Object runJavascript(String javaScript, WebDriver webDriver) {
 		// TODO Auto-generated method stub
-		Long response=null;
+		Object response=null;
 		if (webDriver instanceof JavascriptExecutor) {
 			try
 			{
-				response=(Long)((JavascriptExecutor) webDriver).executeScript(javaScript);
-				System.out.println("Length is: "+((JavascriptExecutor) webDriver).executeScript(javaScript));
+				response=((JavascriptExecutor) webDriver).executeScript(javaScript);
+				System.out.println("Object is: "+response);
 				
 			}catch(UnreachableBrowserException ex)
 			{
@@ -1394,10 +1059,39 @@ if (webDriver instanceof JavascriptExecutor) {
 			}
 		}
 		return response;
-	}
+	 }
+	
+	public Boolean checkWhetherDisplayed(WebElement webElement, Integer secondsToWait)
+		{
+
+		FluentWait<WebElement> wait = new FluentWait<WebElement>(webElement);
+		wait.pollingEvery(100,  TimeUnit.MILLISECONDS);
+		wait.withTimeout(secondsToWait, TimeUnit.SECONDS).ignoring(StaleElementReferenceException.class,NoSuchElementException.class);
+		Boolean status=false;
+		Function<WebElement, Boolean> function = new Function<WebElement, Boolean>()
+				{
+			Boolean status=false;
+					public Boolean apply(WebElement webElement) {
+						if(webElement!=null && webElement.isDisplayed())
+						{
+								
+								status=true;						
+						}						
+						
+						return status;
+					}
+				};
+			try
+			{
+			status=wait.until(function);				
+			}catch(TimeoutException ex)
+			{
+				
+			}
+			return status;
+		}
 	
 	
-	
-	}
+}
 	
 
