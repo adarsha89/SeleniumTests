@@ -106,6 +106,7 @@ public class WebDriverUtilFunctions {
 		WebDriver webDriver=null;
 		webDriverFactory=new WebDriverFactory();
 		webDriver=webDriverFactory.getWebDriver(browser,browserVersion,oS,oSVersion,resolution);
+		
 		eventFiringWebDriver=new EventFiringWebDriver(webDriver);
 		eventFiringWebDriver.register(projectListener);
 		webDriver.manage().window().maximize();
@@ -668,7 +669,7 @@ public class WebDriverUtilFunctions {
 								webDriver=new Augmenter().augment(webDriver);
 								scrFile = ((TakesScreenshot)webDriver).getScreenshotAs(OutputType.FILE);
 								//AppLogger.logInfo("Dest path is: target\\generated-test-sources\\screenshots\\"+testContextName+"\\"+testCaseName+"\\"+failureName+ ".jpeg");
-								File file1=new File("target\\generated-test-sources\\screenshots\\"+testContextName+"\\"+testCaseName+"\\"+failureName+ ".jpeg");								
+								File file1=new File("target/generated-test-sources/screenshots/"+testContextName+"/"+testCaseName+"/"+failureName+ ".jpeg");								
 								try {
 								FileUtils.copyFile(scrFile, file1);
 								status=true;

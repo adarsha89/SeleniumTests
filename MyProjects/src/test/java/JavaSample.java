@@ -14,7 +14,7 @@ public class JavaSample {
 
   public static void main(String[] args) throws Exception {
     
-    DesiredCapabilities caps = new DesiredCapabilities();
+    DesiredCapabilities caps = DesiredCapabilities.firefox();
     
     caps.setCapability("browser", "Firefox");
     caps.setCapability("browser_version", "39.0");

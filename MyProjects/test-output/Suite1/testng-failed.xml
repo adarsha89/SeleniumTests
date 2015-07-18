@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite1]">
-  <parameter name="oS" value="OS X"/>
-  <parameter name="browser" value="Firefox"/>
-  <parameter name="browserVersion" value="39.0"/>
-  <parameter name="resolution" value="1024x768"/>
-  <parameter name="oSVersion" value="Yosemite"/>
+  <parameter name="oS" value="WINDOWS"/>
+  <parameter name="browser" value="RemoteFirefox"/>
   <listeners>
     <listener class-name="net.project.listeners.AppListener"/>
   </listeners>
   <test name="SafariTest(failed)">
-    <parameter name="oS" value="OS X"/>
-    <parameter name="browser" value="Firefox"/>
-    <parameter name="browserVersion" value="39.0"/>
-    <parameter name="resolution" value="1024x768"/>
-    <parameter name="oSVersion" value="Yosemite"/>
+    <parameter name="oS" value="WINDOWS"/>
+    <parameter name="browser" value="RemoteFirefox"/>
     <classes>
       <class name="net.project.HackerRankForWork.TestClasses.SanityTestClass">
         <methods>

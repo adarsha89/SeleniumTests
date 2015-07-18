@@ -5,6 +5,7 @@ import java.net.URL;
 
 import net.project.loggers.AppLogger;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -41,6 +42,39 @@ public class WebDriverFactory {
 	{
 		if(browserVersion==null || oS==null || oSVersion==null || resolution==null)
 		{
+			if(browser.startsWith("Remote"))
+			{
+				WebDriver webDriver = null;
+				DesiredCapabilities caps = new DesiredCapabilities();
+			    String brow=browser.split("Remote")[1];
+			    System.out.println(brow);
+			    if(brow.toLowerCase().equals("firefox"))
+				{
+					caps.setBrowserName("firefox");
+				}
+				if(brow.toLowerCase().equals("chrome"))
+				{
+					caps.setBrowserName("chrome");
+				}
+				if(brow.toLowerCase().equals("safari"))
+				{
+					caps.setBrowserName("safari");
+				}if(brow.toLowerCase().equals("phantomjs"))
+				{
+					caps.setBrowserName("phantomjs");
+				}
+			    	caps.setPlatform(Platform.fromString(oS));
+			try {
+				webDriver = new RemoteWebDriver(new URL("http://localhost:5556/wd/hub"), caps);
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				AppLogger.logError("Not able to start webdriver remotely");
+			}
+		    return webDriver;
+			}
+			
+			
+			
 			WebDriver webDriver=null;
 			if(browser.toLowerCase().equals("firefox"))
 			{
@@ -60,6 +94,7 @@ public class WebDriverFactory {
 			
 			return webDriver;
 		}
+		 
 		else{
 			WebDriver webDriver = null;
 			DesiredCapabilities caps = new DesiredCapabilities();
