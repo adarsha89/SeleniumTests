@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/3/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jul 21 10:00:03 IST 2015</td>
+<td>Started on:</td><td>Tue Jul 21 10:23:16 IST 2015</td>
 </tr>
-<tr><td>Total time:</td><td>1 seconds (1913 ms)</td>
+<tr><td>Total time:</td><td>5 seconds (5780 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -79,19 +79,20 @@ function toggleAllBoxes() {
 <td><div><pre>java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
 	at org.openqa.selenium.support.PageFactory.instantiatePage(PageFactory.java:137)
 	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:63)
-	at net.project.webDriverUtils.WebDriverUtilFunctions.instantiatePage(WebDriverUtilFunctions.java:953)
+	at net.project.webDriverUtils.WebDriverUtilFunctions.instantiatePage(WebDriverUtilFunctions.java:974)
 	at net.project.HackerRankForWork.TestClasses.SanityTestClass.checkForHackerrankForWorkLoginPage(SanityTestClass.java:43)
 	at org.openqa.selenium.support.PageFactory.instantiatePage(PageFactory.java:128)
 	... 29 more
-Caused by: org.openqa.selenium.WebDriverException: chrome not reachable
+Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=43.0.2357.134)
   (Driver info: chromedriver=2.15.322455 (ae8db840dac8d0c453355d3d922c91adfb61df8f),platform=Mac OS X 10.10.3 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 5 milliseconds
+Command duration or timeout: 4 milliseconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8e7ca8e37638dc3091b2440b90a1d8686f&apos;, time: &apos;2015-02-27 09:10:26&apos;
 System info: host: &apos;Adarshas-MacBook-Pro.local&apos;, ip: &apos;192.168.2.70&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.10.3&apos;, java.version: &apos;1.8.0_45&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.0Qp7xn}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 098fe47fcc9222fff8a05ba314be54ab
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.kAqOR4}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: fba777cda2f0424882b96bce46f0fb2f
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
@@ -99,16 +100,16 @@ Session ID: 098fe47fcc9222fff8a05ba314be54ab
 	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:101)
 	at com.sun.proxy.$Proxy8.executeScript(Unknown Source)
 	at org.openqa.selenium.support.events.EventFiringWebDriver.executeScript(EventFiringWebDriver.java:213)
-	at net.project.webDriverUtils.WebDriverUtilFunctions.waitForPageToLoad(WebDriverUtilFunctions.java:380)
+	at net.project.webDriverUtils.WebDriverUtilFunctions.waitForPageToLoad(WebDriverUtilFunctions.java:401)
 	at net.project.HackerRankForWork.PageClasses.CommonPageInterface.waitForPageRender(CommonPageInterface.java:17)
 	at net.project.HackerRankForWork.PageClasses.WelcomePage.isLoaded(WelcomePage.java:134)
 	at net.project.HackerRankForWork.PageClasses.WelcomePage.&lt;init&gt;(WelcomePage.java:125)
 	... 34 more
-... Removed 39 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace778731861", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace778731861'><pre>java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+... Removed 39 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1383178166", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1383178166'><pre>java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
 	at org.openqa.selenium.support.PageFactory.instantiatePage(PageFactory.java:137)
 	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:63)
-	at net.project.webDriverUtils.WebDriverUtilFunctions.instantiatePage(WebDriverUtilFunctions.java:953)
+	at net.project.webDriverUtils.WebDriverUtilFunctions.instantiatePage(WebDriverUtilFunctions.java:974)
 	at net.project.HackerRankForWork.TestClasses.SanityTestClass.checkForHackerrankForWorkLoginPage(SanityTestClass.java:43)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -143,15 +144,16 @@ Caused by: java.lang.reflect.InvocationTargetException
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.support.PageFactory.instantiatePage(PageFactory.java:128)
 	... 29 more
-Caused by: org.openqa.selenium.WebDriverException: chrome not reachable
+Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=43.0.2357.134)
   (Driver info: chromedriver=2.15.322455 (ae8db840dac8d0c453355d3d922c91adfb61df8f),platform=Mac OS X 10.10.3 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 5 milliseconds
+Command duration or timeout: 4 milliseconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8e7ca8e37638dc3091b2440b90a1d8686f&apos;, time: &apos;2015-02-27 09:10:26&apos;
 System info: host: &apos;Adarshas-MacBook-Pro.local&apos;, ip: &apos;192.168.2.70&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.10.3&apos;, java.version: &apos;1.8.0_45&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.0Qp7xn}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 098fe47fcc9222fff8a05ba314be54ab
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.kAqOR4}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: fba777cda2f0424882b96bce46f0fb2f
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -167,7 +169,7 @@ Session ID: 098fe47fcc9222fff8a05ba314be54ab
 	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:101)
 	at com.sun.proxy.$Proxy8.executeScript(Unknown Source)
 	at org.openqa.selenium.support.events.EventFiringWebDriver.executeScript(EventFiringWebDriver.java:213)
-	at net.project.webDriverUtils.WebDriverUtilFunctions.waitForPageToLoad(WebDriverUtilFunctions.java:380)
+	at net.project.webDriverUtils.WebDriverUtilFunctions.waitForPageToLoad(WebDriverUtilFunctions.java:401)
 	at net.project.HackerRankForWork.PageClasses.CommonPageInterface.waitForPageRender(CommonPageInterface.java:17)
 	at net.project.HackerRankForWork.PageClasses.WelcomePage.isLoaded(WelcomePage.java:134)
 	at net.project.HackerRankForWork.PageClasses.WelcomePage.&lt;init&gt;(WelcomePage.java:125)
@@ -180,19 +182,20 @@ Session ID: 098fe47fcc9222fff8a05ba314be54ab
 <td><div><pre>java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
 	at org.openqa.selenium.support.PageFactory.instantiatePage(PageFactory.java:137)
 	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:63)
-	at net.project.webDriverUtils.WebDriverUtilFunctions.instantiatePage(WebDriverUtilFunctions.java:953)
+	at net.project.webDriverUtils.WebDriverUtilFunctions.instantiatePage(WebDriverUtilFunctions.java:974)
 	at net.project.HackerRankForWork.TestClasses.SanityTestClass.checkForHackerrankForWorkLoginPage(SanityTestClass.java:43)
 	at org.openqa.selenium.support.PageFactory.instantiatePage(PageFactory.java:128)
 	... 29 more
-Caused by: org.openqa.selenium.WebDriverException: chrome not reachable
+Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=43.0.2357.134)
   (Driver info: chromedriver=2.15.322455 (ae8db840dac8d0c453355d3d922c91adfb61df8f),platform=Mac OS X 10.10.3 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 6 milliseconds
+Command duration or timeout: 4 milliseconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8e7ca8e37638dc3091b2440b90a1d8686f&apos;, time: &apos;2015-02-27 09:10:26&apos;
 System info: host: &apos;Adarshas-MacBook-Pro.local&apos;, ip: &apos;192.168.2.70&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.10.3&apos;, java.version: &apos;1.8.0_45&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.0Qp7xn}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 098fe47fcc9222fff8a05ba314be54ab
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.kAqOR4}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: fba777cda2f0424882b96bce46f0fb2f
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
@@ -203,11 +206,11 @@ Session ID: 098fe47fcc9222fff8a05ba314be54ab
 	at net.project.HackerRankForWork.PageClasses.WelcomePage.load(WelcomePage.java:145)
 	at net.project.HackerRankForWork.PageClasses.WelcomePage.&lt;init&gt;(WelcomePage.java:124)
 	... 34 more
-... Removed 39 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1522095831", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1522095831'><pre>java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+... Removed 39 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1963862935", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1963862935'><pre>java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
 	at org.openqa.selenium.support.PageFactory.instantiatePage(PageFactory.java:137)
 	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:63)
-	at net.project.webDriverUtils.WebDriverUtilFunctions.instantiatePage(WebDriverUtilFunctions.java:953)
+	at net.project.webDriverUtils.WebDriverUtilFunctions.instantiatePage(WebDriverUtilFunctions.java:974)
 	at net.project.HackerRankForWork.TestClasses.SanityTestClass.checkForHackerrankForWorkLoginPage(SanityTestClass.java:43)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -242,15 +245,16 @@ Caused by: java.lang.reflect.InvocationTargetException
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.support.PageFactory.instantiatePage(PageFactory.java:128)
 	... 29 more
-Caused by: org.openqa.selenium.WebDriverException: chrome not reachable
+Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=43.0.2357.134)
   (Driver info: chromedriver=2.15.322455 (ae8db840dac8d0c453355d3d922c91adfb61df8f),platform=Mac OS X 10.10.3 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 6 milliseconds
+Command duration or timeout: 4 milliseconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8e7ca8e37638dc3091b2440b90a1d8686f&apos;, time: &apos;2015-02-27 09:10:26&apos;
 System info: host: &apos;Adarshas-MacBook-Pro.local&apos;, ip: &apos;192.168.2.70&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.10.3&apos;, java.version: &apos;1.8.0_45&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.0Qp7xn}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 098fe47fcc9222fff8a05ba314be54ab
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.kAqOR4}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: fba777cda2f0424882b96bce46f0fb2f
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -277,19 +281,20 @@ Session ID: 098fe47fcc9222fff8a05ba314be54ab
 <td><div><pre>java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
 	at org.openqa.selenium.support.PageFactory.instantiatePage(PageFactory.java:137)
 	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:63)
-	at net.project.webDriverUtils.WebDriverUtilFunctions.instantiatePage(WebDriverUtilFunctions.java:953)
+	at net.project.webDriverUtils.WebDriverUtilFunctions.instantiatePage(WebDriverUtilFunctions.java:974)
 	at net.project.HackerRankForWork.TestClasses.SanityTestClass.checkForHackerrankForWorkLoginPage(SanityTestClass.java:43)
 	at org.openqa.selenium.support.PageFactory.instantiatePage(PageFactory.java:128)
 	... 29 more
-Caused by: org.openqa.selenium.WebDriverException: chrome not reachable
+Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=43.0.2357.134)
   (Driver info: chromedriver=2.15.322455 (ae8db840dac8d0c453355d3d922c91adfb61df8f),platform=Mac OS X 10.10.3 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 12 milliseconds
+Command duration or timeout: 10 milliseconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8e7ca8e37638dc3091b2440b90a1d8686f&apos;, time: &apos;2015-02-27 09:10:26&apos;
 System info: host: &apos;Adarshas-MacBook-Pro.local&apos;, ip: &apos;192.168.2.70&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.10.3&apos;, java.version: &apos;1.8.0_45&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.0Qp7xn}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 098fe47fcc9222fff8a05ba314be54ab
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.kAqOR4}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: fba777cda2f0424882b96bce46f0fb2f
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
@@ -300,11 +305,11 @@ Session ID: 098fe47fcc9222fff8a05ba314be54ab
 	at net.project.HackerRankForWork.PageClasses.WelcomePage.load(WelcomePage.java:145)
 	at net.project.HackerRankForWork.PageClasses.WelcomePage.&lt;init&gt;(WelcomePage.java:124)
 	... 34 more
-... Removed 39 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace783191662", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace783191662'><pre>java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+... Removed 39 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1191654595", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1191654595'><pre>java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
 	at org.openqa.selenium.support.PageFactory.instantiatePage(PageFactory.java:137)
 	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:63)
-	at net.project.webDriverUtils.WebDriverUtilFunctions.instantiatePage(WebDriverUtilFunctions.java:953)
+	at net.project.webDriverUtils.WebDriverUtilFunctions.instantiatePage(WebDriverUtilFunctions.java:974)
 	at net.project.HackerRankForWork.TestClasses.SanityTestClass.checkForHackerrankForWorkLoginPage(SanityTestClass.java:43)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -339,15 +344,16 @@ Caused by: java.lang.reflect.InvocationTargetException
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
 	at org.openqa.selenium.support.PageFactory.instantiatePage(PageFactory.java:128)
 	... 29 more
-Caused by: org.openqa.selenium.WebDriverException: chrome not reachable
+Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=43.0.2357.134)
   (Driver info: chromedriver=2.15.322455 (ae8db840dac8d0c453355d3d922c91adfb61df8f),platform=Mac OS X 10.10.3 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 12 milliseconds
+Command duration or timeout: 10 milliseconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8e7ca8e37638dc3091b2440b90a1d8686f&apos;, time: &apos;2015-02-27 09:10:26&apos;
 System info: host: &apos;Adarshas-MacBook-Pro.local&apos;, ip: &apos;192.168.2.70&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.10.3&apos;, java.version: &apos;1.8.0_45&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.0Qp7xn}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 098fe47fcc9222fff8a05ba314be54ab
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.kAqOR4}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: fba777cda2f0424882b96bce46f0fb2f
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -371,15 +377,16 @@ Session ID: 098fe47fcc9222fff8a05ba314be54ab
 <td>net.project.HackerRankForWork.TestClasses.SanityTestClass@1e683a3e</td></tr>
 <tr>
 <td title='net.project.HackerRankForWork.TestClasses.SanityTestClass.tearDownInterviewTask()'><b>tearDownInterviewTask</b><br>Test class: net.project.HackerRankForWork.TestClasses.SanityTestClass</td>
-<td><div><pre>org.openqa.selenium.WebDriverException: chrome not reachable
+<td><div><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=43.0.2357.134)
   (Driver info: chromedriver=2.15.322455 (ae8db840dac8d0c453355d3d922c91adfb61df8f),platform=Mac OS X 10.10.3 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 4 milliseconds
+Command duration or timeout: 5 milliseconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8e7ca8e37638dc3091b2440b90a1d8686f&apos;, time: &apos;2015-02-27 09:10:26&apos;
 System info: host: &apos;Adarshas-MacBook-Pro.local&apos;, ip: &apos;192.168.2.70&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.10.3&apos;, java.version: &apos;1.8.0_45&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.0Qp7xn}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 098fe47fcc9222fff8a05ba314be54ab
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.kAqOR4}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: fba777cda2f0424882b96bce46f0fb2f
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
@@ -388,18 +395,19 @@ Session ID: 098fe47fcc9222fff8a05ba314be54ab
 	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:101)
 	at com.sun.proxy.$Proxy8.close(Unknown Source)
 	at org.openqa.selenium.support.events.EventFiringWebDriver.close(EventFiringWebDriver.java:194)
-	at net.project.webDriverUtils.WebDriverUtilFunctions.closeAndQuitWebDriver(WebDriverUtilFunctions.java:853)
+	at net.project.webDriverUtils.WebDriverUtilFunctions.closeAndQuitWebDriver(WebDriverUtilFunctions.java:874)
 	at net.project.HackerRankForWork.TestClasses.SanityTestClass.tearDownInterviewTask(SanityTestClass.java:123)
-... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1902237905", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1902237905'><pre>org.openqa.selenium.WebDriverException: chrome not reachable
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace485937598", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace485937598'><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
   (Session info: chrome=43.0.2357.134)
   (Driver info: chromedriver=2.15.322455 (ae8db840dac8d0c453355d3d922c91adfb61df8f),platform=Mac OS X 10.10.3 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 4 milliseconds
+Command duration or timeout: 5 milliseconds
 Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8e7ca8e37638dc3091b2440b90a1d8686f&apos;, time: &apos;2015-02-27 09:10:26&apos;
 System info: host: &apos;Adarshas-MacBook-Pro.local&apos;, ip: &apos;192.168.2.70&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.10.3&apos;, java.version: &apos;1.8.0_45&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.0Qp7xn}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 098fe47fcc9222fff8a05ba314be54ab
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.kAqOR4}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.134, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: fba777cda2f0424882b96bce46f0fb2f
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -416,7 +424,7 @@ Session ID: 098fe47fcc9222fff8a05ba314be54ab
 	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:101)
 	at com.sun.proxy.$Proxy8.close(Unknown Source)
 	at org.openqa.selenium.support.events.EventFiringWebDriver.close(EventFiringWebDriver.java:194)
-	at net.project.webDriverUtils.WebDriverUtilFunctions.closeAndQuitWebDriver(WebDriverUtilFunctions.java:853)
+	at net.project.webDriverUtils.WebDriverUtilFunctions.closeAndQuitWebDriver(WebDriverUtilFunctions.java:874)
 	at net.project.HackerRankForWork.TestClasses.SanityTestClass.tearDownInterviewTask(SanityTestClass.java:123)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -457,8 +465,8 @@ Session ID: 098fe47fcc9222fff8a05ba314be54ab
 <td title='net.project.HackerRankForWork.TestClasses.SanityTestClass.codePairSanityTest1()'><b>codePairSanityTest1</b><br>Test class: net.project.HackerRankForWork.TestClasses.SanityTestClass</td>
 <td><div><pre>java.lang.NullPointerException
 	at net.project.listeners.AppListener.onTestSkipped(AppListener.java:209)
-... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace914507705", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace914507705'><pre>java.lang.NullPointerException
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace445918232", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace445918232'><pre>java.lang.NullPointerException
 	at net.project.listeners.AppListener.onTestSkipped(AppListener.java:209)
 	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1769)
 	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1761)
@@ -488,8 +496,8 @@ Session ID: 098fe47fcc9222fff8a05ba314be54ab
 <td title='net.project.HackerRankForWork.TestClasses.SanityTestClass.codePairSanityTest2()'><b>codePairSanityTest2</b><br>Test class: net.project.HackerRankForWork.TestClasses.SanityTestClass</td>
 <td><div><pre>java.lang.NullPointerException
 	at net.project.listeners.AppListener.onTestSkipped(AppListener.java:209)
-... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2097905212", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2097905212'><pre>java.lang.NullPointerException
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1265900909", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1265900909'><pre>java.lang.NullPointerException
 	at net.project.listeners.AppListener.onTestSkipped(AppListener.java:209)
 	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1769)
 	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1761)
@@ -519,8 +527,8 @@ Session ID: 098fe47fcc9222fff8a05ba314be54ab
 <td title='net.project.HackerRankForWork.TestClasses.SanityTestClass.codePairSanityTest3()'><b>codePairSanityTest3</b><br>Test class: net.project.HackerRankForWork.TestClasses.SanityTestClass</td>
 <td><div><pre>java.lang.NullPointerException
 	at net.project.listeners.AppListener.onTestSkipped(AppListener.java:209)
-... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace593415583", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace593415583'><pre>java.lang.NullPointerException
+... Removed 21 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1489743810", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1489743810'><pre>java.lang.NullPointerException
 	at net.project.listeners.AppListener.onTestSkipped(AppListener.java:209)
 	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1769)
 	at org.testng.internal.Invoker.runTestListeners(Invoker.java:1761)

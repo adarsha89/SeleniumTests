@@ -16,10 +16,8 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-
 import net.project.listeners.AppListener;
-import net.project.loggers.AppLogger;
-
+import net.project.loggers.AppLogger;   
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
