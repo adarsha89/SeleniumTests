@@ -16,7 +16,7 @@ public class PhantomJSWebDriver implements BrowserSpecificWebDriverCapabilities 
 	public WebDriver getDefaultWebDriver() {
 		
 		DesiredCapabilities desiredCapabilities= DesiredCapabilities.phantomjs();
-		desiredCapabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,"/usr/bin/phantomjs");
+		desiredCapabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,System.getProperty("phantomjs.binary.path"));
 		desiredCapabilities.setCapability("acceptSslCerts", true);
 		desiredCapabilities.setJavascriptEnabled(true);
 		desiredCapabilities.setCapability("nativeEvents", true);

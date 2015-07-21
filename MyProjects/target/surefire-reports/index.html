@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -90,7 +90,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                    <span class="method-stats">2 methods, 2 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -101,24 +101,15 @@
                     <div class="method-list-content failed suite-Suite1">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite1" title="net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass" hash-for-method="testFromIntervieweeSide(testintervieweeman, C++, src/test/resources/testcasedocs/mycode.txt, src/test/resources/testcasedocs...)">testFromIntervieweeSide(testintervieweeman, C++, src/test/resources/testcasedocs/mycode.txt, src/test/resources/testcasedocs...)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite1" title="net.project.HackerRankForWork.TestClasses.BasicTestClass" hash-for-method="testFromIntervieweeSide">testFromIntervieweeSide</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite1" title="net.project.HackerRankForWork.TestClasses.BasicTestClass" hash-for-method="testFromInterviewerSide">testFromInterviewerSide</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Suite1 -->
-                  </li>
-                  <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Suite1" class="hide-methods passed suite-Suite1"> (hide)</a> <!-- hide-methods passed suite-Suite1 -->
-                      <a href="#" panel-name="suite-Suite1" class="show-methods passed suite-Suite1"> (show)</a> <!-- show-methods passed suite-Suite1 -->
-                    </span>
-                    <div class="method-list-content passed suite-Suite1">
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite1" title="net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass" hash-for-method="testFromInterviewerSide(adarsha+dev@hackerrank.com, ADAshe89)">testFromInterviewerSide(adarsha+dev@hackerrank.com, ADAshe89)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-Suite1 -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -133,61 +124,37 @@
           <div class="suite-Suite1-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass</span>
+              <span class="class-name">net.project.HackerRankForWork.TestClasses.BasicTestClass</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testFromIntervieweeSide(testintervieweeman, C++, src/test/resources/testcasedocs/mycode.txt, src/test/resources/testcasedocs...)">
-                  </a> <!-- testFromIntervieweeSide(testintervieweeman, C++, src/test/resources/testcasedocs/mycode.txt, src/test/resources/testcasedocs...) -->
+                  <a name="testFromIntervieweeSide">
+                  </a> <!-- testFromIntervieweeSide -->
                   <span class="method-name">testFromIntervieweeSide</span>
-                  <span class="parameters">(testintervieweeman, C++, src/test/resources/testcasedocs/mycode.txt, src/test/resources/testcasedocs/codeInput.txt)</span>
-                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=43.0.2357.132)
-  (Driver info: chromedriver=2.15.322455 (ae8db840dac8d0c453355d3d922c91adfb61df8f),platform=Mac OS X 10.10.3 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 11 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;2.45.0&apos;, revision: &apos;5017cb8e7ca8e37638dc3091b2440b90a1d8686f&apos;, time: &apos;2015-02-27 09:10:26&apos;
-System info: host: &apos;Adarshas-MacBook-Pro.local&apos;, ip: &apos;192.168.2.70&apos;, os.name: &apos;Mac OS X&apos;, os.arch: &apos;x86_64&apos;, os.version: &apos;10.10.3&apos;, java.version: &apos;1.8.0_45&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/27/wsmvbfq16db0yymbjm1m45mm0000gn/T/.org.chromium.Chromium.hHXz5R}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=43.0.2357.132, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 0827ed1ab101581505162a7fa8215dae
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:268)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:152)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement$1.invoke(EventFiringWebDriver.java:331)
-	at com.sun.proxy.$Proxy10.getText(Unknown Source)
-	at org.openqa.selenium.support.events.EventFiringWebDriver$EventFiringWebElement.getText(EventFiringWebDriver.java:381)
-	at net.project.HackerRankForWork.PageClasses.LiveInterviewPage.selectLanguageUsingLanguageList(LiveInterviewPage.java:103)
-	at net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass.testFromIntervieweeSide(BasicTestClass.java:83)
-... Removed 35 stack frames
+                  <div class="stack-trace">java.lang.NullPointerException
+	at net.project.listeners.AppListener.onTestSkipped(AppListener.java:209)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testFromInterviewerSide">
+                  </a> <!-- testFromInterviewerSide -->
+                  <span class="method-name">testFromInterviewerSide</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at net.project.listeners.AppListener.onTestSkipped(AppListener.java:209)
+... Removed 24 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite1-class-failed -->
-          <div class="suite-Suite1-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="testFromInterviewerSide(adarsha+dev@hackerrank.com, ADAshe89)">
-                  </a> <!-- testFromInterviewerSide(adarsha+dev@hackerrank.com, ADAshe89) -->
-                  <span class="method-name">testFromInterviewerSide</span>
-                  <span class="parameters">(adarsha+dev@hackerrank.com, ADAshe89)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite1-class-passed -->
         </div> <!-- panel Suite1 -->
         <div panel-name="test-xml-Suite1" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/Users/adarshashetty/Documents/EclipseWorkspace/MyProjects/src/test/resources/testsuites/codePairSampleSuite.xml</span>
+            <span class="header-content">/Users/adarshashetty/SeleniumTests/MyProjects/src/test/resources/testsuites/codePairSampleSuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -199,10 +166,10 @@ Session ID: 0827ed1ab101581505162a7fa8215dae
   &lt;/listeners&gt;
   &lt;test name=&quot;SafariTest&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;Chrome&quot;/&gt;
-    &lt;parameter name=&quot;browser2&quot; value=&quot;Chrome&quot;/&gt;
+    &lt;parameter name=&quot;browser2&quot; value=&quot;Firefox&quot;/&gt;
     &lt;parameter name=&quot;browser1&quot; value=&quot;Chrome&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass&quot;/&gt;
+      &lt;class name=&quot;net.project.HackerRankForWork.TestClasses.BasicTestClass&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- SafariTest --&gt;
 &lt;/suite&gt; &lt;!-- Suite1 --&gt;
@@ -245,17 +212,17 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testFromIntervieweeSide')
-data.setCell(0, 2, 'net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass')
+data.setCell(0, 2, 'net.project.HackerRankForWork.TestClasses.BasicTestClass')
 data.setCell(0, 3, 0);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'testFromInterviewerSide')
-data.setCell(1, 2, 'net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass')
-data.setCell(1, 3, 1436877665285);
+data.setCell(1, 2, 'net.project.HackerRankForWork.TestClasses.BasicTestClass')
+data.setCell(1, 3, 0);
 window.suiteTableData['Suite1']= { tableData: data, tableDiv: 'times-div-Suite1'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 399132 hours</span>
+              <span class="suite-total-time">Total running time: 0 ms</span>
               <div id="times-div-Suite1">
               </div> <!-- times-div-Suite1 -->
             </div> <!-- times-div -->
@@ -281,24 +248,24 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">net.project.testClasses.HackerrankForWork.CodePair.BasicTestClass</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">net.project.HackerRankForWork.TestClasses.BasicTestClass</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">setupInterviewTask</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">testFromInterviewerSide(adarsha+dev@hackerrank.com, ADAshe89)</span>
-                <span class="method-start">144283 ms</span>
+                <span class="method-start">1210 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">testFromIntervieweeSide(testintervieweeman, C++, src/test/resources/testcasedocs/mycode.txt, src/test/resources/testcasedocs...)</span>
-                <span class="method-start">168425 ms</span>
+                <span class="method-start">1242 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownInterviewTask</span>
-                <span class="method-start">209001 ms</span>
+                <span class="method-start">1254 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

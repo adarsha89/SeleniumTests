@@ -9,8 +9,7 @@ public class ChromeWebDriver implements BrowserSpecificWebDriverCapabilities{
 
 	@Override
 	public WebDriver getDefaultWebDriver() {
-		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-		// TODO Auto-generated method stub
+				// TODO Auto-generated method stub
 		DesiredCapabilities capability = DesiredCapabilities.internetExplorer();
 		capability.setCapability("databaseEnabled", true);
 		capability.setCapability("locationContextEnabled", true);

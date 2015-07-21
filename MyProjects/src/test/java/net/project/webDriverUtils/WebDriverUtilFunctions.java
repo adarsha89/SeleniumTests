@@ -16,8 +16,10 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+
 import net.project.listeners.AppListener;
 import net.project.loggers.AppLogger;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -40,6 +42,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.annotation.Configuration;
 import org.testng.annotations.Optional;
+
 import com.google.common.base.Function;
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
@@ -54,19 +57,20 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+
 import javax.activation.*;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-
 
 // TODO: Auto-generated Javadoc
 /**
@@ -101,11 +105,11 @@ public class WebDriverUtilFunctions {
 	 * @return the web driver
 	 */
 	
-	public EventFiringWebDriver setupTest(String browser,@Optional String browserVersion,@Optional String oS,@Optional String oSVersion,@Optional String resolution)
+	public EventFiringWebDriver setupTest(String browser,@Optional String browserVersion,@Optional String oS,@Optional String oSVersion,@Optional String resolution,@Optional String nameOfTest)
 	{
 		WebDriver webDriver=null;
 		webDriverFactory=new WebDriverFactory();
-		webDriver=webDriverFactory.getWebDriver(browser,browserVersion,oS,oSVersion,resolution);
+		webDriver=webDriverFactory.getWebDriver(browser,browserVersion,oS,oSVersion,resolution,nameOfTest);
 		
 		eventFiringWebDriver=new EventFiringWebDriver(webDriver);
 		eventFiringWebDriver.register(projectListener);
@@ -121,8 +125,24 @@ public class WebDriverUtilFunctions {
 	 * @return the web driver
 	 */
 	static {
-		//System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-		//System.setProperty("phantomjs.binary.path", "/usr/bin/phantomjs");
+		if(System.getProperty("os.name").startsWith("MAC"))
+		{
+			System.setProperty("webdriver.chrome.driver", "src/test/resources/driverexefiles/MACFiles/chromedriver");
+			System.setProperty("phantomjs.binary.path", "src/test/resources/driverexefiles/MACFiles/phantomjs");
+		}
+		else if(System.getProperty("os.name").startsWith("Linux"))
+		{
+			System.setProperty("webdriver.chrome.driver", "src/test/resources/driverexefiles/LinuxFiles/chromedriver");
+			System.setProperty("phantomjs.binary.path", "src/test/resources/driverexefiles/LinuxFiles/phantomjs");
+
+		}
+		else if(System.getProperty("os.name").startsWith("Windows"))
+		{
+			System.setProperty("webdriver.chrome.driver", "src/test/resources/driverexefiles/WindowsFiles/chromedriver.exe");
+			System.setProperty("phantomjs.binary.path", "src/test/resources/driverexefiles/WindowsFiles/phantomjs.exe");
+			System.setProperty("webdriver.ie.driver", "src/test/resources/driverexefiles/WindowsFiles/IEDriverServer.exe");
+
+		}
 		AppLogger.logInfo("Logger has been configured successfully");
 		}
 
@@ -1091,6 +1111,7 @@ if (webDriver instanceof JavascriptExecutor) {
 			}
 			return status;
 		}
+	
 	
 	
 }

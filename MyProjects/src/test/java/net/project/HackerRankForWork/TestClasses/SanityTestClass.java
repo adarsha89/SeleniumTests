@@ -29,11 +29,11 @@ public class SanityTestClass {
 	WebDriver interviewerWebDriver;
 	WebDriver intervieweeWebDriver;
 	WebDriverUtilFunctions webDriverUtilFunctions;
-	@Parameters({"browser","browserVersion","oS","oSVersion","resolution"})
-	public SanityTestClass(String browser,@Optional String browserVersion,@Optional String oS,@Optional String oSVersion,@Optional String resolution) {
+	@Parameters({"browser","browserVersion","oS","oSVersion","resolution","testName"})
+	public SanityTestClass(String browser,@Optional String browserVersion,@Optional String oS,@Optional String oSVersion,@Optional String resolution,@Optional String testName) {
 		// TODO Auto-generated constructor stub
 		webDriverUtilFunctions=new WebDriverUtilFunctions();
-		this.webDriver=webDriverUtilFunctions.setupTest(browser,browserVersion,oS,oSVersion,resolution);
+		this.webDriver=webDriverUtilFunctions.setupTest(browser,browserVersion,oS,oSVersion,resolution,testName);
 		
 	}
 	@BeforeMethod(alwaysRun=true)

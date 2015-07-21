@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite1]">
-  <parameter name="oS" value="WINDOWS"/>
-  <parameter name="browser" value="RemoteFirefox"/>
+  <parameter name="browser" value="Chrome"/>
   <listeners>
     <listener class-name="net.project.listeners.AppListener"/>
   </listeners>
   <test name="SafariTest(failed)">
-    <parameter name="oS" value="WINDOWS"/>
-    <parameter name="browser" value="RemoteFirefox"/>
+    <parameter name="browser" value="Chrome"/>
     <classes>
       <class name="net.project.HackerRankForWork.TestClasses.SanityTestClass">
         <methods>
-          <include name="codePairSanityTest3" invocation-numbers="0"/>
+          <include name="codePairSanityTest3"/>
           <include name="tearDownInterviewTask"/>
+          <include name="codePairSanityTest2"/>
+          <include name="codePairSanityTest1"/>
           <include name="checkForHackerrankForWorkLoginPage"/>
         </methods>
       </class> <!-- net.project.HackerRankForWork.TestClasses.SanityTestClass -->

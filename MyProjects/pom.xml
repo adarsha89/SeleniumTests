@@ -210,7 +210,7 @@
           <testFailureIgnore>true</testFailureIgnore>
         </configuration>
       </plugin>
-      <plugin>  
+     <!--  <plugin>  
    <groupId>org.codehaus.mojo</groupId>  
    <artifactId>exec-maven-plugin</artifactId>  
    <version>1.3.2</version>  
@@ -225,15 +225,15 @@
      <configuration>  
      <cleanupDaemonThreads>false</cleanupDaemonThreads>
      <killAfter>0</killAfter>
-     <!-- <includeProjectDependencies>true</includeProjectDependencies> -->
-     <!-- <includePluginDependencies>true</includePluginDependencies> -->
+     <includeProjectDependencies>true</includeProjectDependencies>
+     <includePluginDependencies>true</includePluginDependencies>
       <mainClass>net.project.webDriverUtils.TestsFinalizationClass</mainClass>
       <arguments>
       <argument>arg0</argument>
       </arguments>
      <classpathScope>test</classpathScope>
      </configuration>        
-  </plugin>
+  </plugin> -->
   
   <!-- <plugin>
  <groupId>org.apache.maven.plugins</groupId>

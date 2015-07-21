@@ -2,6 +2,7 @@ package net.project.webDriverUtils;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Calendar;
 
 import net.project.loggers.AppLogger;
 
@@ -17,34 +18,15 @@ public class WebDriverFactory {
 	ChromeWebDriver chromeWebDriver=null;
 	SafariWebDriver safariWebDriver=null;
 
-	/*public WebDriver getWebDriver(String browser)
+	public WebDriver getWebDriver(String browser,@Optional String browserVersion,@Optional String oS,@Optional String oSVersion,@Optional String resolution,@Optional String nameOfTest)
 	{
-		WebDriver webDriver=null;
-		if(browser.toLowerCase().equals("firefox"))
-		{
-			webDriver=new FirefoxWebDriver().getDefaultWebDriver();
-		}
-		if(browser.toLowerCase().equals("chrome"))
-		{
-			webDriver=new ChromeWebDriver().getDefaultWebDriver();
-		}
-		if(browser.toLowerCase().equals("safari"))
-		{
-			webDriver=new SafariWebDriver().getDefaultWebDriver();
-		}if(browser.toLowerCase().equals("phantomjs"))
-		{
-			webDriver=new PhantomJSWebDriver().getDefaultWebDriver();
-		}
 		
-		return webDriver;
-	}*/
-	public WebDriver getWebDriver(String browser,@Optional String browserVersion,@Optional String oS,@Optional String oSVersion,@Optional String resolution)
-	{
-		if(browserVersion==null || oS==null || oSVersion==null || resolution==null)
+		WebDriver webDriver=null;
+		if(browserVersion==null)
 		{
+			
 			if(browser.startsWith("Remote"))
 			{
-				WebDriver webDriver = null;
 				DesiredCapabilities caps = new DesiredCapabilities();
 			    String brow=browser.split("Remote")[1];
 			    System.out.println(brow);
@@ -65,38 +47,40 @@ public class WebDriverFactory {
 				}
 			    	caps.setPlatform(Platform.fromString(oS));
 			try {
-				webDriver = new RemoteWebDriver(new URL("http://localhost:5556/wd/hub"), caps);
+				webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				AppLogger.logError("Not able to start webdriver remotely");
 			}
-		    return webDriver;
 			}
 			
 			
-			
-			WebDriver webDriver=null;
-			if(browser.toLowerCase().equals("firefox"))
+			else
 			{
-				webDriver=new FirefoxWebDriver().getDefaultWebDriver();
+
+				
+				if(browser.toLowerCase().equals("firefox"))
+				{
+					webDriver=new FirefoxWebDriver().getDefaultWebDriver();
+				}
+				if(browser.toLowerCase().equals("chrome"))
+				{
+					webDriver=new ChromeWebDriver().getDefaultWebDriver();
+				}
+				if(browser.toLowerCase().equals("safari"))
+				{
+					webDriver=new SafariWebDriver().getDefaultWebDriver();
+				}if(browser.toLowerCase().equals("phantomjs"))
+				{
+					webDriver=new PhantomJSWebDriver().getDefaultWebDriver();
+				}
+				
+				
 			}
-			if(browser.toLowerCase().equals("chrome"))
-			{
-				webDriver=new ChromeWebDriver().getDefaultWebDriver();
-			}
-			if(browser.toLowerCase().equals("safari"))
-			{
-				webDriver=new SafariWebDriver().getDefaultWebDriver();
-			}if(browser.toLowerCase().equals("phantomjs"))
-			{
-				webDriver=new PhantomJSWebDriver().getDefaultWebDriver();
-			}
-			
-			return webDriver;
 		}
 		 
 		else{
-			WebDriver webDriver = null;
+			 webDriver = null;
 			DesiredCapabilities caps = new DesiredCapabilities();
 		    
 		    caps.setCapability("browser", browser);
@@ -119,16 +103,17 @@ public class WebDriverFactory {
 		    //caps.setCapability("browserstack.local", "true");
 		    caps.setCapability("acceptSslCerts", "true");
 		    caps.setCapability("project","SeleniumTests");
-		    caps.setCapability("build","1.0");
-		    caps.setCapability("name","Trial");
+		    Calendar now = Calendar.getInstance();
+		    caps.setCapability("project", "SeleniumTests");
+		    caps.setCapability("build",""+now.get(Calendar.YEAR)+now.get(Calendar.MONTH)+now.get(Calendar.DAY_OF_MONTH)+now.get(Calendar.HOUR_OF_DAY));
+		    caps.setCapability("name",""+now.get(Calendar.YEAR)+now.get(Calendar.MONTH)+now.get(Calendar.DAY_OF_MONTH)+now.get(Calendar.HOUR_OF_DAY)+now.get(Calendar.MINUTE)+now.get(Calendar.SECOND)+now.get(Calendar.MILLISECOND));
 		    try {
 				webDriver = new RemoteWebDriver(new URL(new WebDriverUtilFunctions().URL), caps);
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				AppLogger.logError("Not able to start webdriver remotely");
 			}
-		    return webDriver;
 		}
-		
+		return webDriver;
 	}
 }

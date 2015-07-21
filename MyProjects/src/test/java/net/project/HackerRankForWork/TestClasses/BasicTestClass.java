@@ -41,12 +41,12 @@ WebDriver webDriver;
 WebDriver interviewerWebDriver;
 WebDriver intervieweeWebDriver;
 WebDriverUtilFunctions webDriverUtilFunctions;
-@Parameters({"browser","browser1","browser2","browserVersion","oS","oSVersion","resolution"})
-public BasicTestClass(String browser, String browser1, String browser2,@Optional String browserVersion,@Optional String oS,@Optional String oSVersion,@Optional String resolution) {
+@Parameters({"browser","browser1","browser2","browserVersion","oS","oSVersion","resolution","testName"})
+public BasicTestClass(String browser, String browser1, String browser2,@Optional String browserVersion,@Optional String oS,@Optional String oSVersion,@Optional String resolution,@Optional String testName) {
 	webDriverUtilFunctions=new WebDriverUtilFunctions();
-	this.webDriver=webDriverUtilFunctions.setupTest(browser,null,null,null,null);
-	this.interviewerWebDriver=webDriverUtilFunctions.setupTest(browser1,null,null,null,null);
-	this.intervieweeWebDriver=webDriverUtilFunctions.setupTest(browser2,browserVersion,oS,oSVersion,resolution);
+	this.webDriver=webDriverUtilFunctions.setupTest(browser,null,null,null,null,null);
+	this.interviewerWebDriver=webDriverUtilFunctions.setupTest(browser1,null,null,null,null,null);
+	this.intervieweeWebDriver=webDriverUtilFunctions.setupTest(browser2,browserVersion,oS,oSVersion,resolution,testName);
 }
 
 	@BeforeClass(alwaysRun=true)
