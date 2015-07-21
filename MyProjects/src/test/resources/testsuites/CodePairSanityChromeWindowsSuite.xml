@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite1">
+<listeners>
+ <listener class-name="net.project.listeners.AppListener" >
+ </listener>
+</listeners>
+<test name="SafariTest" preserve-order="true" parallel="false">
+ <parameter name="browser" value="Chrome"/>
+ <parameter name="browserVersion" value="43.0"/>
+ <parameter name="oSVersion" value="7"/>
+ <parameter name="oS" value="WINDOWS"/>
+ <parameter name="testName" value="CodePairSanityChromeWindowsSuite"></parameter>
+ <classes> 
+ <class name="net.project.HackerRankForWork.TestClasses.SanityTestClass"  >
+ </class>
+ </classes>
+</test>
+ </suite>
+ 
