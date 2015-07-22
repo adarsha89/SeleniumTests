@@ -1,4 +1,4 @@
-# SeleniumTests
+# Codepair_Selenium_Tests
 Description: Selenium-Maven project to Test Codepair in HackerRankForWork website
 
 Purpose: Functional testing of Codepair. The project is aimed at covering all major functionalities that can be automated using Selenium WebDriver
