@@ -1,7 +1,7 @@
 # SeleniumTests
 Description: Selenium-Maven project to Test a public website
 
-Purpose: Functional testing of Codepair. The project is aimed at covering all major functionalities that can be automated using Selenium WebDriver
+Purpose: Functional testing of a public website. The project is aimed at covering all major functionalities that can be automated using Selenium WebDriver
 
 Components:
 
