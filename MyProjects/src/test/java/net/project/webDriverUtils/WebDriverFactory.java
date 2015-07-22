@@ -27,31 +27,23 @@ public class WebDriverFactory {
 			
 			if(browser.startsWith("Remote"))
 			{
-				DesiredCapabilities caps = new DesiredCapabilities();
 			    String brow=browser.split("Remote")[1];
-			    System.out.println(brow);
 			    if(brow.toLowerCase().equals("firefox"))
 				{
-					caps.setBrowserName("firefox");
+					webDriver=new FirefoxWebDriver().getRemoteWebDriver();
 				}
 				if(brow.toLowerCase().equals("chrome"))
 				{
-					caps.setBrowserName("chrome");
+					webDriver=new ChromeWebDriver().getRemoteWebDriver();
 				}
 				if(brow.toLowerCase().equals("safari"))
 				{
-					caps.setBrowserName("safari");
+					webDriver=new SafariWebDriver().getRemoteWebDriver();
 				}if(brow.toLowerCase().equals("phantomjs"))
 				{
-					caps.setBrowserName("phantomjs");
+					webDriver=new PhantomJSWebDriver().getRemoteWebDriver();
 				}
-			    	caps.setPlatform(Platform.fromString(oS));
-			try {
-				webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				AppLogger.logError("Not able to start webdriver remotely");
-			}
+			
 			}
 			
 			

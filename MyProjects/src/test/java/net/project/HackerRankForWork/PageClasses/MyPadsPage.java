@@ -130,14 +130,4 @@ public class MyPadsPage extends LoadableComponent<MyPadsPage> implements CommonP
 		newInterviewPage.isLoaded();
 		return newInterviewPage;
 	}
-	public NewInterviewPage goToLatestInterviewDetailsUsingLatestInterviewId(String title )
-	{
-
-		String jsonString=webDriverUtilFunctions.getJSONStringFromUrl("https://www.interviewstreet.com/api/interviews?api_key=5b68eb247ab6f3d8e25066794649d75e4e08d9a351d128ff42f3445a6addb42e&_&limit=5&order_by=id&order_dir=desc");
-		String urlToBeLoaded="https://www.hackerrank.com/x/interviews/mypads/"+jsonString.split(":")[2].split(",")[0];
-		NewInterviewPage newInterviewPage=(NewInterviewPage)webDriverUtilFunctions.instantiatePage(webDriver, "net.project.HackerRankForWork.PageClasses.NewInterviewPage");
-		webDriverUtilFunctions.goToURL(urlToBeLoaded, webDriver);
-		newInterviewPage.isLoaded();
-		return newInterviewPage;
-	}
 }

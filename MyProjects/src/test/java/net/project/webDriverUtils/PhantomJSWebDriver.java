@@ -3,8 +3,11 @@ package net.project.webDriverUtils;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import net.project.loggers.AppLogger;
+
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -15,32 +18,43 @@ public class PhantomJSWebDriver implements BrowserSpecificWebDriverCapabilities 
 	@Override
 	public WebDriver getDefaultWebDriver() {
 		
-		DesiredCapabilities desiredCapabilities= DesiredCapabilities.phantomjs();
-		desiredCapabilities.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,System.getProperty("phantomjs.binary.path"));
-		desiredCapabilities.setCapability("acceptSslCerts", true);
-		desiredCapabilities.setJavascriptEnabled(true);
-		desiredCapabilities.setCapability("nativeEvents", true);
+		DesiredCapabilities capability= DesiredCapabilities.phantomjs();
+		capability.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,System.getProperty("phantomjs.binary.path"));
+		capability.setCapability("acceptSslCerts", true);
+		capability.setJavascriptEnabled(true);
+		capability.setCapability("nativeEvents", true);
 		String osString=System.getProperty("os.name");
-		if(osString.startsWith("MAC"))
+		if(System.getProperty("os.name").startsWith("MAC"))
 		{
-			desiredCapabilities.setPlatform(Platform.MAC);
+			capability.setPlatform(Platform.MAC);
 		}
-		WebDriver webDriver=null;
-		try {
-			webDriver = new RemoteWebDriver(new URL("http://localhost:5555/wd/hub"), desiredCapabilities);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		else if(System.getProperty("os.name").startsWith("Linux"))
+		{
+			capability.setPlatform(Platform.LINUX);
 		}
-		webDriver.manage().window().maximize();
-		return webDriver;
+		else if(System.getProperty("os.name").startsWith("Windows"))
+		{
+			capability.setPlatform(Platform.WINDOWS);
+		}
+		PhantomJSDriver phantomJSDriver = new PhantomJSDriver(capability);	
+		phantomJSDriver.manage().window().maximize();
+		return phantomJSDriver;
 	
 	}
 
 	@Override
 	public WebDriver getRemoteWebDriver() {
 		// TODO Auto-generated method stub
-		return null;
+		DesiredCapabilities caps=new DesiredCapabilities();
+		WebDriver webDriver=null;
+		caps.setBrowserName("phantomjs");
+		try {
+			webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			AppLogger.logError("Not able to start webdriver remotely");
+		}
+		return webDriver;
 	}
 
 }

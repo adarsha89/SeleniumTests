@@ -72,7 +72,7 @@ public class SanityTestClass {
 	ScheduleInterviewPage scheduleInterviewPage= myPadsPage.codePairPage.createNewInterview();
 	myPadsPage=scheduleInterviewPage.createQuickPadUsingCandidateAndInterviewerInfo(candidateEmail, candidateName,candidatePhoneNumber, interviewerNames);
 	//NewInterviewPage newInterviewPage=myPadsPage.goToLatestInterviewDetails(padTitle);
-	NewInterviewPage newInterviewPage=myPadsPage.goToLatestInterviewDetailsUsingLatestInterviewId(padTitle);
+	NewInterviewPage newInterviewPage=myPadsPage.goToLatestInterviewDetails(padTitle);
 	List<String> fetchedInterviewerNames=newInterviewPage.getInterviewerNames();
 	if(fetchedInterviewerNames.containsAll(scheduleInterviewPage.successfullyUpdatedInterviewerNames) && scheduleInterviewPage.successfullyUpdatedInterviewerNames.containsAll(fetchedInterviewerNames))
 	{
@@ -97,7 +97,7 @@ public class SanityTestClass {
 		myPadsPage=scheduleInterviewPage.createQuickPadUsingCandidateAndInterviewerInfo(candidateEmail, candidateName,candidatePhoneNumber, interviewerNames);
 		//NewInterviewPage newInterviewPage=myPadsPage.goToLatestInterviewDetails(padTitle);
 	
-		NewInterviewPage newInterviewPage=myPadsPage.goToLatestInterviewDetailsUsingLatestInterviewId(padTitle);
+		NewInterviewPage newInterviewPage=myPadsPage.goToLatestInterviewDetails(padTitle);
 		List<String> fetchedInterviewerNames=newInterviewPage.getInterviewerNames();
 		if(fetchedInterviewerNames.containsAll(scheduleInterviewPage.successfullyUpdatedInterviewerNames) && scheduleInterviewPage.successfullyUpdatedInterviewerNames.containsAll(fetchedInterviewerNames))
 		{

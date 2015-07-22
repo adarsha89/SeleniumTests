@@ -20,8 +20,6 @@ import net.project.dataAccess.SampleTextFileDataAccessInterface;
 import net.project.loggers.AppLogger;
 import net.project.webDriverUtils.WebDriverUtilFunctions;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

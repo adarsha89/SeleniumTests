@@ -4,7 +4,7 @@
  <listener class-name="net.project.listeners.AppListener" >
  </listener>
 </listeners>
-<test name="SafariTest" preserve-order="true" parallel="false">
+<test name="CodePairSanityChromeMACSuite" preserve-order="true" parallel="false">
  <parameter name="browser" value="Chrome"/>
  <classes> 
  <class name="net.project.HackerRankForWork.TestClasses.SanityTestClass"  >

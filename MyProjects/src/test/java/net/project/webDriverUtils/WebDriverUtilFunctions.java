@@ -123,6 +123,7 @@ public class WebDriverUtilFunctions {
 	 * @return the web driver
 	 */
 	static {
+		AppLogger.logInfo("Setting properties for drivers");
 		if(System.getProperty("os.name").startsWith("MAC"))
 		{
 			System.setProperty("webdriver.chrome.driver", "src/test/resources/driverexefiles/MACFiles/chromedriver");
@@ -155,10 +156,12 @@ public class WebDriverUtilFunctions {
 	
 	public void goToURL(String url, WebDriver webDriver)
 	{	
+		AppLogger.logInfo("Going to url: "+url);
 	webDriver.get(url);	
 	}
 	public String getAttributeOfElement(WebElement webElement, String attributeName)
 	{
+		
 		String attribute=null;
 		if(checkWhetherDisplayed(webElement, 5))
 		{

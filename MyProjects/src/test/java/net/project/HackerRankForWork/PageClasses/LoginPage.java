@@ -109,7 +109,7 @@ public class LoginPage extends LoadableComponent<LoginPage> implements CommonPag
 	public void enterPassword()
 	{
 		passwordInput.clear();
-		passwordInput.sendKeys("ADAshe89");
+		passwordInput.sendKeys("MyTest123");
 	}
 	public void enterUsername(String username)
 	{

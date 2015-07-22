@@ -2,6 +2,7 @@ package net.project.listeners;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -45,6 +46,8 @@ import org.testng.Reporter;
 import org.testng.collections.Lists;
 import org.testng.internal.Utils;
 import org.testng.xml.XmlSuite;
+
+import com.itextpdf.text.DocumentException;
 
 public class AppListener  implements ISuiteListener,ITestListener,IExecutionListener,IInvokedMethodListener, WebDriverEventListener,IReporter /*, IAnnotationTransformer2*/{
 public List<Long> threadRunTimes=new ArrayList<Long>();
@@ -104,8 +107,9 @@ public List<Long> threadRunTimes=new ArrayList<Long>();
 		
 		
 		List<String> folders=new ArrayList<String>();
-		folders.add("target/generated-test-sources/test-logs/");
-		folders.add("target/generated-test-sources/screenshots/");
+		folders.add("target/generated-test-sources");
+		folders.add("target/generated-test-sources");
+		folders.add("target/surefire-reports");
 		File folderToBeCleaned=null;
 				
 				for(String folder : folders )
@@ -133,7 +137,18 @@ public List<Long> threadRunTimes=new ArrayList<Long>();
 	public void onFinish(ISuite suite) {
 		// TODO Auto-generated method stub
 		AppLogger.logInfo("----------------Finishing the execution of Test Suite :  "+ this.getClass().getSimpleName()+ "--------------------");			
-		//WebDriverUtilFunctions.convertHTMLToPDF("target/surefire-reports/emailable-report.html", "target/surefire-reports/emailable-report.pdf");
+		try {
+			WebDriverUtilFunctions.convertHTMLToPDF("target/surefire-reports/emailable-report.html", "target/surefire-reports/emailable-report.pdf");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//WebDriverUtilFunctions.emailFile("adarsha.shetty.1989@gmail.com", "trnkuohdtefxsdqp", "adarsha.shetty.1989@gmail.com", "adarsha.shetty.1989@gmail.com","target/surefire-reports/emailable-report.pdf","emailable-report.pdf");
 		 
 		
@@ -206,7 +221,7 @@ public List<Long> threadRunTimes=new ArrayList<Long>();
 		// TODO Auto-generated method stub
 		
 		AppLogger.logError("----------------------TestCase: "+result.getTestName()+" Skipped-------------------");
-		AppLogger.logError("Test was skipped due to following reason: "+ result.getThrowable().getStackTrace());
+		AppLogger.logError("------Test was skipped due to following reason: "+ result.getThrowable().getMessage());
 		
 	}
 
@@ -260,14 +275,14 @@ public List<Long> threadRunTimes=new ArrayList<Long>();
 	@Override
 	public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
 		// TODO Auto-generated method stub
-	
+	AppLogger.logInfo("Before invoking method: "+ method);
 		
 	}
 
 	@Override
 	public void afterInvocation(IInvokedMethod method, ITestResult result) {
 		// TODO Auto-generated method stub
-		
+		AppLogger.logInfo("After invoking method: "+method	 );
         Reporter.setCurrentTestResult(result);
         String description=null;
         
@@ -325,100 +340,100 @@ public List<Long> threadRunTimes=new ArrayList<Long>();
 
 
 	@Override
-	public void afterChangeValueOf(WebElement arg0, WebDriver arg1) {
+	public void afterChangeValueOf(WebElement webElement, WebDriver arg1) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("After changing value of: ");
+		AppLogger.logInfo("Changed value of : "+webElement);
 	}
 
 
 	@Override
-	public void afterClickOn(WebElement arg0, WebDriver arg1) {
+	public void afterClickOn(WebElement webElement, WebDriver arg1) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("After clicking on: ");
+		AppLogger.logInfo("After clicking on: "+ webElement);
 	}
 
 
 	@Override
-	public void afterFindBy(By arg0, WebElement arg1, WebDriver arg2) {
+	public void afterFindBy(By by, WebElement arg1, WebDriver arg2) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("After FindBy : ");
+		AppLogger.logInfo("After FindBy : "+by);
 	}
 
 
 	@Override
-	public void afterNavigateBack(WebDriver arg0) {
+	public void afterNavigateBack(WebDriver webDriver) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("After navigating back : ");
+		AppLogger.logInfo("After navigating back, I am at: "+webDriver.getCurrentUrl());
 	}
 
 
 	@Override
-	public void afterNavigateForward(WebDriver arg0) {
+	public void afterNavigateForward(WebDriver webDriver) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("After navigating forward: ");
+		AppLogger.logInfo("After navigating forward, I am at: "+ webDriver.getCurrentUrl());
 	}
 
 
 	@Override
-	public void afterNavigateTo(String arg0, WebDriver arg1) {
+	public void afterNavigateTo(String url, WebDriver webDriver) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("After navigating to: ");
+		AppLogger.logInfo("After navigating to: "+url+" ,I am at: "+webDriver.getCurrentUrl());
 	}
 
 
 	@Override
-	public void afterScript(String arg0, WebDriver arg1) {
+	public void afterScript(String javascript, WebDriver arg1) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("After executing script: ");
+		AppLogger.logInfo("After executing script: "+javascript);
 	}
 
 
 	@Override
-	public void beforeChangeValueOf(WebElement arg0, WebDriver arg1) {
+	public void beforeChangeValueOf(WebElement webElement, WebDriver arg1) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("Before changing value of : ");
+		AppLogger.logInfo("Before changing value of : "+webElement);
 	}
 
 
 	@Override
-	public void beforeClickOn(WebElement arg0, WebDriver arg1) {
+	public void beforeClickOn(WebElement webElement, WebDriver arg1) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("Before clicking on : ");
+		AppLogger.logInfo("Before clicking on : "+ webElement);
 	}
 
 
 	@Override
-	public void beforeFindBy(By arg0, WebElement arg1, WebDriver arg2) {
+	public void beforeFindBy(By by, WebElement arg1, WebDriver arg2) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("Before FindBy:");
+		AppLogger.logInfo("Before FindBy: "+by );
 	}
 
 
 	@Override
-	public void beforeNavigateBack(WebDriver arg0) {
+	public void beforeNavigateBack(WebDriver webDriver) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("Before navigating back : ");
+		AppLogger.logInfo("Before navigating back, I am at : "+webDriver.getCurrentUrl());
 	}
 
 
 	@Override
-	public void beforeNavigateForward(WebDriver arg0) {
+	public void beforeNavigateForward(WebDriver webDriver) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("Before navigating forward : ");
+		AppLogger.logInfo("Before navigating forward, I am at this url: "+webDriver.getCurrentUrl());
 	}
 
 
 	@Override
-	public void beforeNavigateTo(String arg0, WebDriver arg1) {
+	public void beforeNavigateTo(String url, WebDriver webDriver) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("Before navigating to : ");
+		AppLogger.logInfo("Before navigating to : "+url+" I am at this url: "+webDriver.getCurrentUrl());
 	}
 
 
 	@Override
-	public void beforeScript(String arg0, WebDriver arg1) {
+	public void beforeScript(String javaScript, WebDriver arg1) {
 		// TODO Auto-generated method stub
-		//AppLogger.logInfo("Before executing script : ");
+		AppLogger.logInfo("Before executing javascript : "+javaScript);
 	}
 
 

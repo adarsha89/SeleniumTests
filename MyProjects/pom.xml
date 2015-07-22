@@ -205,7 +205,7 @@
         <configuration>  
 		<suiteXmlFiles>         
             <!-- <suiteXmlFile>src\test\resources\testsuites\hybrid.xml</suiteXmlFile> -->
-            <suiteXmlFile>src\test\resources\testsuites\codePairSampleSuite.xml</suiteXmlFile>
+            <suiteXmlFile>src\test\resources\testsuites\codePairSanityChromeMacSuite.xml</suiteXmlFile>
           </suiteXmlFiles>
           <testFailureIgnore>true</testFailureIgnore>
         </configuration>

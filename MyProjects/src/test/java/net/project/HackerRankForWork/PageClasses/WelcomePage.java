@@ -142,7 +142,7 @@ public class WelcomePage extends LoadableComponent<WelcomePage> implements Commo
 	@Override
 	protected void load() {
 		// TODO Auto-generated method stub
-		webDriver.get(url);
+		webDriverUtilFunctions.goToURL(url, webDriver);
 		
 	}
 	
