@@ -1,0 +1,11 @@
+name: Automation test trigger based on comment
+on: issue_comment
+
+jobs:
+  deploy:
+    name: Start testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start Testing
+        id: testing
+        run: echo "Hi  ${{ toJSON(github.event.issue_comment) }}"
