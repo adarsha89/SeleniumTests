@@ -1,12 +1,11 @@
 name: Automation test trigger based on comment
 on: issue_comment
 
-if: contains( github.event.comment.body, '@test')
-
 jobs:
   deploy:
     name: Start testing
     runs-on: ubuntu-latest
+    if: contains( github.event.comment.body, '@test')
     steps:
       - name: Notify test start
         id: notify_testing
