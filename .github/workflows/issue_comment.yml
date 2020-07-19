@@ -16,4 +16,4 @@ jobs:
           comment-id: ${{ toJSON(github.event.comment.id) }}
           body: |
             **Edit:** Some additional info
-          reactions: +1
+          reactions: '+1'
