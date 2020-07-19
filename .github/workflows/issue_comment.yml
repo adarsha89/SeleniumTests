@@ -1,6 +1,8 @@
 name: Automation test trigger based on comment
 on: issue_comment
 
+if: contains( github.event.comment.body, '@test')
+
 jobs:
   deploy:
     name: Start testing
