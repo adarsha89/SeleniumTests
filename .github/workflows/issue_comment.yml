@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Notify test start
-        id: update
+        id: notify testing
         uses: peter-evans/create-or-update-comment@v1
         with:
           comment-id: ${{ toJSON(github.event.comment.id) }}
@@ -18,7 +18,7 @@ jobs:
         id: testing
         run: echo "Hi testing2 ${{ toJSON(github.event.comment.body) }}"
       - name: Update comment
-        id: update
+        id: update result
         uses: peter-evans/create-or-update-comment@v1
         with:
           comment-id: ${{ toJSON(github.event.comment.id) }}
