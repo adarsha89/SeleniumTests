@@ -8,4 +8,4 @@ jobs:
     steps:
       - name: Start Testing
         id: testing
-        run: echo "Hi testing ${{ github.event.issue_comment }}"
+        run: echo "Hi testing ${{ toJSON(github.event.comment) }}"
