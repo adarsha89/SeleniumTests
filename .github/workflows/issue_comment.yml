@@ -9,3 +9,11 @@ jobs:
       - name: Start Testing
         id: testing
         run: echo "Hi testing2 ${{ toJSON(github.event.comment.body) }}"
+      - name: Update comment
+        id: update
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          comment-id: ${{ toJSON(github.event.comment.id) }}
+          body: |
+            **Edit:** Some additional info
+          reactions: eyes
