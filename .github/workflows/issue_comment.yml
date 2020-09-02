@@ -17,7 +17,7 @@ jobs:
           reactions: eyes
       - uses: actions/checkout@v1
       - name: Prepare repository
-        run: git checkout "${GITHUB_REF:11}"
+        run: echo  "Hi ${GITHUB_REF:11}"
       - name: Update comment
         id: update_result
         uses: peter-evans/create-or-update-comment@v1
