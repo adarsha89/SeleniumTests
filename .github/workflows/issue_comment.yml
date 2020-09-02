@@ -17,7 +17,7 @@ jobs:
           reactions: eyes
       - name: Testing started
         id: testing
-        run: echo "Hi testing2 ${{ env.GITHUB_REF }}"
+        run: echo "Hi testing2 ${{ toJSON(github) }}"
       - name: Update comment
         id: update_result
         uses: peter-evans/create-or-update-comment@v1
