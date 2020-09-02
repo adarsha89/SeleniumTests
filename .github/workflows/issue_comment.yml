@@ -16,8 +16,9 @@ jobs:
             **Edit:** Started testing at https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
           reactions: eyes
       - name: Testing started
+        uses: actions/checkout@v1
         id: testing
-        run: echo "Hi testing2 $GITHUB_REF"
+        run: echo "Hi testing2 ${GITHUB_REF:11}"
       - name: Update comment
         id: update_result
         uses: peter-evans/create-or-update-comment@v1
