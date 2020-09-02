@@ -15,9 +15,12 @@ jobs:
           body: |
             **Edit:** Started testing at https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
           reactions: eyes
-      - uses: actions/checkout@v1
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
       - name: Prepare repository
-        run: echo  "Hi ${GITHUB_REF}"
+        run: echo  "Hi ${{ steps.extract_branch.outputs.branch }}"
       - name: Update comment
         id: update_result
         uses: peter-evans/create-or-update-comment@v1
