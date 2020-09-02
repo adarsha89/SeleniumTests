@@ -25,5 +25,5 @@ jobs:
         with:
           comment-id: ${{ toJSON(github.event.comment.id) }}
           body: |
-            **Edit:** Some additional info ${{ steps.comment-branch.outputs.ref }}
+            **Edit:** Some additional info ${{GITHUB_REF}}
           reactions: '+1'
