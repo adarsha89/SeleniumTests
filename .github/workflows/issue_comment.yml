@@ -20,7 +20,7 @@ jobs:
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
       - name: Prepare repository
-        run: echo  "Hi ${{ steps.extract_branch.outputs.branch }}"
+        run: echo  "Hi ${GITHUB_SHA}"
       - name: Update comment
         id: update_result
         uses: peter-evans/create-or-update-comment@v1
