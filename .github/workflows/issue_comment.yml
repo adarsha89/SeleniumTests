@@ -15,17 +15,15 @@ jobs:
           body: |
             **Edit:** Started testing at https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
           reactions: eyes
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      - name: Prepare repository
-        run: echo  "Hi ${GITHUB_SHA}"
+      - uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Update comment
         id: update_result
         uses: peter-evans/create-or-update-comment@v1
         with:
           comment-id: ${{ toJSON(github.event.comment.id) }}
           body: |
-            **Edit:** Some additional info
+            **Edit:** Some additional info ${{ steps.comment-branch.outputs.ref }}
           reactions: '+1'
