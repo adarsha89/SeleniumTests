@@ -4,4 +4,8 @@ on: issue_comment
 jobs:
   deploy:
     name: Start testing
-    run: echo Hi $GITHUB_ACTOR
+    runs-on: ubuntu-latest
+    if: contains( github.event.comment.body, '@test')
+    steps:
+      - name: Notify test start
+        run: echo $GITHUB_ACTOR
