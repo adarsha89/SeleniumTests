@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Get Github actor
         id: get_github_actor
-        run: echo ::set-env name=$ACTOR::$(echo $GITHUB_ACTOR)
+        run: echo ::set-env name=ACTOR::$(echo $GITHUB_ACTOR)
       - name: Notify test start
         id: notify_testing
         env:
