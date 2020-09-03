@@ -4,14 +4,4 @@ on: issue_comment
 jobs:
   deploy:
     name: Start testing
-    runs-on: ubuntu-latest
-    if: contains( github.event.comment.body, '@test')
-    steps:
-      - name: Notify test start
-        id: notify_testing
-        uses: peter-evans/create-or-update-comment@v1
-        with:
-          comment-id: ${{ toJSON(github.event.comment.id) }}
-          body: |
-            **Edit:** Started testing at https://github.com/${{github.repository}}/actions/runs/${{github.run_id}} by ${{env.GITHUB_ACTOR}}
-          reactions: eyes
+    run: echo Hi $GITHUB_ACTOR
