@@ -13,6 +13,7 @@ jobs:
       - name: Notify test start
         id: notify_testing
         env:
+          env: ${{ toJSON(github) }}
           GITHUB_ACTOR: ${{env.GITHUB_ACTOR}}
           ACTOR: ${{env.ACTOR}}
         uses: peter-evans/create-or-update-comment@v1
